@@ -9,10 +9,12 @@
 import SwiftUI
 import PlantEntity
 import PlantForm
+import ReminderForm
 
 public struct PlantDetailsView: View {
     @EnvironmentObject var plantsStore: PlantsStore
-    @State private var showsFormView = false
+    @State private var showsPlantFormView = false
+    @State private var showsReminderFormView = false
     private let plant: Plant
 
     public init(plant: Plant) {
@@ -20,19 +22,33 @@ public struct PlantDetailsView: View {
     }
 
     public var body: some View {
-        Text(plant.nickName)
-            .navigationBarTitle(plant.nickName)
-            .navigationBarItems(trailing: editButton())
-            .sheet(isPresented: $showsFormView) {
-                PlantFormView(model: .init(store: self.plantsStore, plant: self.plant))
+        VStack {
+            Text(plant.nickName)
+            addReminder()
         }
+        .navigationBarTitle(plant.nickName)
+        .navigationBarItems(trailing: editButton())
     }
 
     private func editButton() -> some View {
-        Button(action: showForm) { Text("Edit") }
+        Button(action: showPlantForm) { Text("Edit") }
+            .sheet(isPresented: $showsPlantFormView) {
+                PlantFormView(model: .init(store: self.plantsStore, plant: self.plant))
+            }
     }
 
-    private func showForm() {
-        showsFormView = true
+    private func addReminder() -> some View {
+        Button(action: showReminderForm) { Text("Add Reminder") }
+            .sheet(isPresented: $showsReminderFormView) {
+                ReminderFormView(model: .init(store: self.plantsStore, plantID: self.plant.id))
+            }
+    }
+
+    private func showPlantForm() {
+        showsPlantFormView = true
+    }
+
+    private func showReminderForm() {
+        showsReminderFormView = true
     }
 }

@@ -51,7 +51,7 @@
 		453603EF2326884D00EDA73D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453604DB2326AB6A00EDA73D /* PlantEntity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlantEntity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453604E52327C33300EDA73D /* PlantFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFormView.swift; sourceTree = "<group>"; };
-		45B752B9232B7CD8006B4ED7 /* UnitVolume+CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitVolume+CaseIterable.swift"; sourceTree = "<group>"; };
+		45B752B9232B7CD8006B4ED7 /* UnitVolume+CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UnitVolume+CaseIterable.swift"; path = "../../ReminderForm/ReminderForm/UnitVolume+CaseIterable.swift"; sourceTree = "<group>"; };
 		45B752EA232B8330006B4ED7 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B752FE232EC37D006B4ED7 /* PlantFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFormModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */

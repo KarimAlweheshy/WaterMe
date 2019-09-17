@@ -15,8 +15,6 @@ public final class PlantFormModel: ObservableObject {
     @Published var botanicalName: String
     @Published var soil: Soil
     @Published var sunlight: Sunlight
-    @Published var waterUnit: UnitVolume
-    @Published var waterValue: Double
     @Published var images: [UIImage]
 
     private let store: PlantsStore
@@ -29,15 +27,11 @@ public final class PlantFormModel: ObservableObject {
         botanicalName = plant?.botanicalName ?? ""
         soil = plant?.careGuide.requirements.soil ?? .neutral
         sunlight = plant?.careGuide.requirements.sunlight ?? .partialShade
-        waterUnit = plant?.careGuide.requirements.water.unit ?? .liters
-        waterValue = plant?.careGuide.requirements.water.value ?? 1
         images = plant?.imagesURL.compactMap { UIImage(contentsOfFile: $0.path) } ?? [UIImage]()
     }
 
     func save() {
-        let requirements = CareGuideRequirements(water: Measurement(value: waterValue,
-                                                                    unit: waterUnit),
-                                                 sunlight: sunlight,
+        let requirements = CareGuideRequirements(sunlight: sunlight,
                                                  soil: soil)
         let careGuide = CareGuide(requirements: requirements, reminders: [CareReminder]())
         let plant = Plant(id: id ?? Int.random(in: 0...Int.max),

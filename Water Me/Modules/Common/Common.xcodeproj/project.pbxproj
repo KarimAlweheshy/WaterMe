@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4534A62323314DCA00E0EC31 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4534A62223314DCA00E0EC31 /* String+Helpers.swift */; };
 		45B752CF232B8289006B4ED7 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B752C5232B8289006B4ED7 /* Common.framework */; };
 		45B752D4232B8289006B4ED7 /* CommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B752D3232B8289006B4ED7 /* CommonTests.swift */; };
 		45B752E9232B829B006B4ED7 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B752E8232B829B006B4ED7 /* ImagePickerViewController.swift */; };
 		45B752EE232BAD2D006B4ED7 /* PickImagesButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B752ED232BAD2D006B4ED7 /* PickImagesButton.swift */; };
+		45F6436B233116ED00CA8FE6 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6436A233116ED00CA8FE6 /* KeyboardResponder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4534A62223314DCA00E0EC31 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		45B752C5232B8289006B4ED7 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B752C9232B8289006B4ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B752CE232B8289006B4ED7 /* CommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +34,7 @@
 		45B752D5232B8289006B4ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B752E8232B829B006B4ED7 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		45B752ED232BAD2D006B4ED7 /* PickImagesButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickImagesButton.swift; sourceTree = "<group>"; };
+		45F6436A233116ED00CA8FE6 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 				45B752C9232B8289006B4ED7 /* Info.plist */,
 				45B752E8232B829B006B4ED7 /* ImagePickerViewController.swift */,
 				45B752ED232BAD2D006B4ED7 /* PickImagesButton.swift */,
+				45F6436A233116ED00CA8FE6 /* KeyboardResponder.swift */,
+				4534A62223314DCA00E0EC31 /* String+Helpers.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -198,8 +204,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4534A62323314DCA00E0EC31 /* String+Helpers.swift in Sources */,
 				45B752EE232BAD2D006B4ED7 /* PickImagesButton.swift in Sources */,
 				45B752E9232B829B006B4ED7 /* ImagePickerViewController.swift in Sources */,
+				45F6436B233116ED00CA8FE6 /* KeyboardResponder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +369,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.karim..Common;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -386,6 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.karim..Common;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

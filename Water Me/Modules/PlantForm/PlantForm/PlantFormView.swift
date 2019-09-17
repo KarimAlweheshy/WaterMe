@@ -79,6 +79,8 @@ extension PlantFormView {
                     Image(uiImage: $0)
                         .resizable()
                         .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                        .shadow(radius: 10)
                         .frame(width: 100, height: 100, alignment: .center)
                         .aspectRatio(contentMode: .fit)
                 }
@@ -91,31 +93,9 @@ extension PlantFormView {
 extension PlantFormView {
     private func careSection() -> some View {
         section(title: "Requirements") {
-            waterDoseUnit()
-            waterDoseValue()
             plantSoilSection()
             sunlightSection()
         }
-    }
-
-    private func waterDoseUnit() -> some View {
-        Picker(selection: $model.waterUnit,
-               label: Text("Water dose unit")
-        ) {
-            ForEach(UnitVolume.allCases, id: \.self) {
-                Text($0.symbol)
-            }
-        }
-    }
-
-    private func waterDoseValue() -> some View {
-        Stepper("Water dose value: \(formattedWaterValue())", value: $model.waterValue, in: 0...10)
-    }
-
-    private func formattedWaterValue() -> String {
-        let measurement = Measurement(value: model.waterValue,
-                                      unit: model.waterUnit)
-        return measurement.description
     }
 
     private func sunlightSection() -> some View {

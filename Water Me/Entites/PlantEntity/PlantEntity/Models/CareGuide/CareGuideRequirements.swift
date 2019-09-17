@@ -9,16 +9,13 @@
 import Foundation
 
 public struct CareGuideRequirements: Codable {
-    public let water: Measurement<UnitVolume>
     public let sunlight: Sunlight
     public let soil: Soil
 
     public init(
-        water: Measurement<UnitVolume>,
         sunlight: Sunlight,
         soil: Soil
     ) {
-        self.water = water
         self.sunlight = sunlight
         self.soil = soil
     }

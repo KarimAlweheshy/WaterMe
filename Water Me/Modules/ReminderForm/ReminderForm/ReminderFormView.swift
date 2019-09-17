@@ -7,15 +7,21 @@
 //
 
 import SwiftUI
+import Common
 
 public struct ReminderFormView: View {
     @Environment(\.presentationMode) var presentation
     @ObservedObject public var model: ReminderFormModel
 
+    public init(model: ReminderFormModel) {
+        self.model = model
+    }
+
     public var body: some View {
         NavigationView {
             form()
-                .navigationBarTitle(Text("Add Plant"))
+                .modifier(AdaptsToSoftwareKeyboard())
+                .navigationBarTitle(Text("Add Reminder"))
                 .navigationBarItems(leading: cancelBarItem(), trailing: traillingBarItem())
         }
     }
@@ -45,7 +51,92 @@ extension ReminderFormView {
 extension ReminderFormView {
     private func form() -> some View {
         Form {
-            Text("Hello")
+            reminderInterval()
+            reminderTypePicker()
+            detailsSection()
+            extrasSection()
+        }
+    }
+}
+
+// MARK: - Reminder Interval
+extension ReminderFormView {
+    private func reminderInterval() -> some View {
+        NavigationLink(
+            "Remind me \(model.reminderOccurance.description)",
+            destination: ReminderFrequencyView(model: .init())
+        )
+    }
+}
+
+// MARK: - Attachments
+extension ReminderFormView {
+    private func attachmentsSection() -> some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text(model.images.isEmpty ? "Add attachments" : "Attachments")
+                Spacer()
+                PickImagesButton(title: "Pick", images: $model.images)
+            }
+            HStack {
+                ForEach(model.images, id: \.self) {
+                    Image(uiImage: $0)
+                        .resizable()
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                        .shadow(radius: 10)
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .aspectRatio(contentMode: .fit)
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Extras
+extension ReminderFormView {
+    private func extrasSection() -> some View {
+        Section(header: Text("Extras").font(.title)) {
+            TextField("Notes", text: $model.notes)
+                .frame(minWidth: 0, maxWidth: .infinity,
+                       minHeight: 0, maxHeight: .infinity)
+            attachmentsSection()
+        }
+    }
+}
+
+// MARK: - Type Picker
+extension ReminderFormView {
+    private func reminderTypePicker() -> some View {
+        Picker(selection: $model.type,
+               label: Text("About")
+        ) {
+            ForEach(ReminderType.allCases, id: \.self) {
+                Text($0.rawValue)
+            }
+        }
+    }
+}
+
+// MARK: - Details Section
+extension ReminderFormView {
+    private func detailsSection() -> some View {
+        Section(
+            header: HStack {
+                Text("Details").font(.title)
+                Spacer()
+            },
+            content: detailsSectionDetails
+        )
+    }
+
+    private func detailsSectionDetails() -> some View {
+        Group {
+            if model.type == .water {
+                WaterReminderFormView(model: .init())
+            } else {
+                Text("")
+            }
         }
     }
 }

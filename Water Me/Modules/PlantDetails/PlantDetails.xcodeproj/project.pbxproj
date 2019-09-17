@@ -12,6 +12,8 @@
 		45B752B5232937B8006B4ED7 /* PlantDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B752B4232937B8006B4ED7 /* PlantDetailsView.swift */; };
 		45B752F1232BB627006B4ED7 /* PlantEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B752F0232BB627006B4ED7 /* PlantEntity.framework */; };
 		45B752F2232BB627006B4ED7 /* PlantEntity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45B752F0232BB627006B4ED7 /* PlantEntity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45BF14B92330F99600C5DF95 /* ReminderForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF14B82330F99600C5DF95 /* ReminderForm.framework */; };
+		45BF14BA2330F99600C5DF95 /* ReminderForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF14B82330F99600C5DF95 /* ReminderForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				45BF14BA2330F99600C5DF95 /* ReminderForm.framework in Embed Frameworks */,
 				45B752F2232BB627006B4ED7 /* PlantEntity.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -46,6 +49,7 @@
 		45B752A1232937A3006B4ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B752B4232937B8006B4ED7 /* PlantDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsView.swift; sourceTree = "<group>"; };
 		45B752F0232BB627006B4ED7 /* PlantEntity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlantEntity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BF14B82330F99600C5DF95 /* ReminderForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ReminderForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45BF14B92330F99600C5DF95 /* ReminderForm.framework in Frameworks */,
 				45B752F1232BB627006B4ED7 /* PlantEntity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +113,7 @@
 		45B752EF232BB627006B4ED7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45BF14B82330F99600C5DF95 /* ReminderForm.framework */,
 				45B752F0232BB627006B4ED7 /* PlantEntity.framework */,
 			);
 			name = Frameworks;
