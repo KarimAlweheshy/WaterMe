@@ -20,6 +20,7 @@
 		45B7530A232F8017006B4ED7 /* TrimmingReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75309232F8017006B4ED7 /* TrimmingReminder.swift */; };
 		45B7530C232F8024006B4ED7 /* FertilizingReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7530B232F8024006B4ED7 /* FertilizingReminder.swift */; };
 		45B7530E232F802F006B4ED7 /* MoveReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7530D232F802F006B4ED7 /* MoveReminder.swift */; };
+		45F1E47323338E9700939D80 /* OtherReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F1E47223338E9700939D80 /* OtherReminder.swift */; };
 		45F6436D23312B7A00CA8FE6 /* ReminderOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6436C23312B7A00CA8FE6 /* ReminderOccurrence.swift */; };
 		45FD646F232FDF4300B2D44D /* MistReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD646E232FDF4300B2D44D /* MistReminder.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		45B75309232F8017006B4ED7 /* TrimmingReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingReminder.swift; sourceTree = "<group>"; };
 		45B7530B232F8024006B4ED7 /* FertilizingReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilizingReminder.swift; sourceTree = "<group>"; };
 		45B7530D232F802F006B4ED7 /* MoveReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveReminder.swift; sourceTree = "<group>"; };
+		45F1E47223338E9700939D80 /* OtherReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherReminder.swift; sourceTree = "<group>"; };
 		45F6436C23312B7A00CA8FE6 /* ReminderOccurrence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOccurrence.swift; sourceTree = "<group>"; };
 		45FD646E232FDF4300B2D44D /* MistReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistReminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 				45FD646E232FDF4300B2D44D /* MistReminder.swift */,
 				45B75309232F8017006B4ED7 /* TrimmingReminder.swift */,
 				45B75307232F8008006B4ED7 /* WateringReminder.swift */,
+				45F1E47223338E9700939D80 /* OtherReminder.swift */,
 				45B75305232F7FFA006B4ED7 /* CareReminder.swift */,
 				45F6436C23312B7A00CA8FE6 /* ReminderOccurrence.swift */,
 			);
@@ -271,6 +274,7 @@
 				45F6436D23312B7A00CA8FE6 /* ReminderOccurrence.swift in Sources */,
 				453604D62326AA9F00EDA73D /* Sunlight.swift in Sources */,
 				45B7530C232F8024006B4ED7 /* FertilizingReminder.swift in Sources */,
+				45F1E47323338E9700939D80 /* OtherReminder.swift in Sources */,
 				45B7528423291315006B4ED7 /* PlantsSotre.swift in Sources */,
 				453604CE2326A64B00EDA73D /* CareGuide.swift in Sources */,
 				45B75304232F7FCC006B4ED7 /* CareGuideRequirements.swift in Sources */,

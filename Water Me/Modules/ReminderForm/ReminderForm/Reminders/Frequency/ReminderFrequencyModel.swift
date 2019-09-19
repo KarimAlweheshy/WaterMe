@@ -33,27 +33,22 @@ final class ReminderFrequencyModel: ObservableObject {
             self.every = every
         }
     }
-    
-    var description: String {
-        let occurance = self.occurance(frequency, weekDays, every)
-        return occurance.description.firstCapitalized
-    }
+}
 
+// MARK: - Public Methods
+extension ReminderFrequencyModel {
     var occurancePublisher: AnyPublisher<ReminderOccurrence, Never> {
         Publishers.CombineLatest3($frequency, $weekDays, $every)
-            .compactMap { tuple in self.occurance(tuple.0, tuple.1, tuple.2) }
+            .compactMap(occurance)
             .eraseToAnyPublisher()
     }
+}
 
-    private func occurance(_ frequency: Frequency, _ weekDays: [WeekDay], _ every: UInt) -> ReminderOccurrence {
-        let occurance: ReminderOccurrence
-        switch frequency {
-        case .daily:
-            occurance = .daily(every)
-        case .weekly:
-            occurance = .weekly(every, weekDays)
-        }
-        return occurance
+// MARK: - Internal Methods
+extension ReminderFrequencyModel {
+    var description: String {
+        let occurance = self.occurance(frequency: frequency, weekDays: weekDays, every: every)
+        return occurance.description.firstCapitalized
     }
 
     var frequencyDescription: String {
@@ -79,3 +74,16 @@ final class ReminderFrequencyModel: ObservableObject {
     }
 }
 
+// MARK: - Private Methods
+extension ReminderFrequencyModel {
+    private func occurance(frequency: Frequency, weekDays: [WeekDay], every: UInt) -> ReminderOccurrence {
+        let occurance: ReminderOccurrence
+        switch frequency {
+        case .daily:
+            occurance = .daily(every)
+        case .weekly:
+            occurance = .weekly(every, weekDays)
+        }
+        return occurance
+    }
+}

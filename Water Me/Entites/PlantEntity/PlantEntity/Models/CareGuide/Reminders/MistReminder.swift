@@ -10,5 +10,5 @@ import Foundation
 
 public struct MistReminder: CareReminder {
     public let id: Int
-    public var occurance: ReminderOccurrence
+    public let occurance: ReminderOccurrence
 }

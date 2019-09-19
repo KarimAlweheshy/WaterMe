@@ -10,5 +10,5 @@ import Foundation
 
 public protocol CareReminder: Codable {
     var id: Int { get }
-    var occurance: ReminderOccurrence { get set }
+    var occurance: ReminderOccurrence { get }
 }

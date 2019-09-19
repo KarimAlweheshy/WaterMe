@@ -54,6 +54,7 @@ public enum ReminderOccurrence: Codable, CustomStringConvertible {
                 result += "\(daysIntervalCount) days"
             }
         case .weekly(let weeksIntervalCount, let weekDays):
+            let weekDays = weekDays.sorted()
             if weeksIntervalCount == 1 {
                 result += "week"
             } else {
@@ -74,7 +75,7 @@ public enum ReminderOccurrence: Codable, CustomStringConvertible {
     }
 }
 
-public enum WeekDay: String, CustomStringConvertible, CaseIterable {
+public enum WeekDay: String, CustomStringConvertible, CaseIterable, Comparable {
     case monday
     case tuesday
     case wednesday
@@ -85,5 +86,12 @@ public enum WeekDay: String, CustomStringConvertible, CaseIterable {
 
     public var description: String {
         return rawValue.capitalized
+    }
+
+    public static func < (lhs: WeekDay, rhs: WeekDay) -> Bool {
+        let weekDays = WeekDay.allCases
+        let lhsIndex = weekDays.firstIndex(of: lhs)!
+        let rhsIndex = weekDays.firstIndex(of: rhs)!
+        return lhsIndex < rhsIndex
     }
 }
