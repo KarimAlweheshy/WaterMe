@@ -10,7 +10,7 @@ import SwiftUI
 import PlantEntity
 
 struct ReminderFrequencyView: View {
-    @ObservedObject public var model: ReminderFrequencyModel
+    @ObservedObject var model: ReminderFrequencyModel
 
     public init(model: ReminderFrequencyModel) {
         self.model = model
@@ -25,9 +25,7 @@ struct ReminderFrequencyView: View {
                 frequencyPicker()
                 Stepper("Every \(model.frequencyDescription)", value: $model.every, in: 1...999)
             }
-            Section {
-                frequencyDetailsSection()
-            }
+            frequencyDetailsSection()
         }
         .navigationBarTitle("Repeat")
     }
@@ -49,11 +47,9 @@ extension ReminderFrequencyView {
 // MARK: - Frequency Details
 extension ReminderFrequencyView {
     private func frequencyDetailsSection() -> some View {
-        Group {
+        Section {
             if model.frequency == .weekly {
                 weeklyDaysPicker()
-            } else if model.frequency == .monthly {
-                Text("")
             } else {
                 EmptyView()
             }

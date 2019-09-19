@@ -20,11 +20,20 @@ public final class ReminderFormModel: ObservableObject {
     @Published var reminderOccurance: ReminderOccurrence
     @Published var notes = ""
 
+    var subs = Set<AnyCancellable>()
+    lazy var reminderFrequencyModel: ReminderFrequencyModel = {
+        let model = ReminderFrequencyModel(occurance: reminderOccurance)
+        model.occurancePublisher
+            .assign(to: \.reminderOccurance, on: self)
+            .store(in: &subs)
+        return model
+    }()
+
     public init(store: PlantsStore, plantID: Int, reminder: CareReminder? = nil) {
         self.store = store
         self.plantID = plantID
         reminderID = reminder?.id
-        reminderOccurance = .daily(1)
+        reminderOccurance = reminder?.occurance ?? .daily(1)
         if let reminder = reminder {
             type = ReminderType(reminder: reminder)
         } else {

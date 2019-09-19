@@ -8,10 +8,41 @@
 
 import Foundation
 
-public enum ReminderOccurrence: CustomStringConvertible {
+public enum ReminderOccurrence: Codable, CustomStringConvertible {
     case daily(UInt)
     case weekly(UInt, [WeekDay])
-    case monthly(UInt, MonthlyOccurance)
+
+    enum CodingKeys: String,  CodingKey {
+        case type
+        case everyCount
+        case weekDays
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let type = try container.decode(String.self, forKey: .type)
+        let everyCount = try container.decode(UInt.self, forKey: .everyCount)
+        if type == "daily" {
+            self = .daily(everyCount)
+        } else if type == "weekly" {
+            let weekDayStrings = try container.decode([String].self, forKey: .weekDays)
+            self = .weekly(everyCount, weekDayStrings.compactMap { WeekDay(rawValue: $0) } )
+        }
+        fatalError()
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        switch self {
+        case .daily(let everyCount):
+            try container.encode("daily", forKey: .type)
+            try container.encode(everyCount, forKey: .everyCount)
+        case .weekly(let everyCount, let weekDays):
+            try container.encode("weekly", forKey: .type)
+            try container.encode(everyCount, forKey: .everyCount)
+            try container.encode(weekDays.compactMap { $0.rawValue }, forKey: .weekDays)
+        }
+    }
 
     public var description: String {
         var result = "every "
@@ -38,14 +69,6 @@ public enum ReminderOccurrence: CustomStringConvertible {
                     .joined(separator: ", ")
                 result += " and \(lastDay.description)"
             }
-        case .monthly(let monthsIntervalCount, let occurance):
-            if monthsIntervalCount == 1 {
-                result += "month"
-            } else {
-                result += "\(monthsIntervalCount) months"
-            }
-            result += " on the "
-            result += occurance.description
         }
         return result
     }
@@ -62,60 +85,5 @@ public enum WeekDay: String, CustomStringConvertible, CaseIterable {
 
     public var description: String {
         return rawValue.capitalized
-    }
-}
-
-public enum MonthlyOccurance: CustomStringConvertible {
-    case each([Int])
-    case onThe(MonthlyEventCount, MonthlyEvent)
-
-    public var description: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .ordinal
-        switch self {
-        case .each(let monthDays):
-            return monthDays
-                .compactMap {
-                    formatter.string(from: NSNumber(value: $0))
-                }
-                .joined(separator: ", ")
-        case .onThe(let eventCount, let event):
-            return "\(eventCount.rawValue) \(event.rawValue)"
-        }
-    }
-}
-
-public enum MonthlyEventCount: String {
-    case first = "1st"
-    case second = "2nd"
-    case third = "3rd"
-    case fourth = "4th"
-    case fifth = "5th"
-    case last = "last"
-}
-
-public enum MonthlyEvent: String, CustomStringConvertible {
-    case monday
-    case tuesday
-    case wednesday
-    case thursday
-    case friday
-    case saturday
-    case sunday
-    case day
-    case weekday
-    case weekendDay
-
-    public var description: String {
-        switch self {
-        case .weekday:
-            return "weekday"
-        case .weekendDay:
-            return "weekend day"
-        case .day:
-            return "day"
-        default:
-            return rawValue.capitalized
-        }
     }
 }

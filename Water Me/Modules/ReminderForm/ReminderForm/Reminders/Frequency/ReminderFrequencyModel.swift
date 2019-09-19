@@ -15,24 +15,45 @@ final class ReminderFrequencyModel: ObservableObject {
     enum Frequency: String, CaseIterable {
         case daily = "Daily"
         case weekly = "Weekly"
-        case monthly = "Monthly"
     }
 
-    @Published var frequency: Frequency = .daily
-    @Published var weekDays: [WeekDay] = [.monday]
-    @Published var every: UInt = 1
+    @Published var frequency: Frequency
+    @Published var weekDays: [WeekDay]
+    @Published var every: UInt
+
+    init(occurance: ReminderOccurrence) {
+        switch occurance {
+        case .daily(let every):
+            frequency = .daily
+            self.every = every
+            self.weekDays = [.monday]
+        case .weekly(let every, let weekDays):
+            frequency = .weekly
+            self.weekDays = weekDays
+            self.every = every
+        }
+    }
     
     var description: String {
+        let occurance = self.occurance(frequency, weekDays, every)
+        return occurance.description.firstCapitalized
+    }
+
+    var occurancePublisher: AnyPublisher<ReminderOccurrence, Never> {
+        Publishers.CombineLatest3($frequency, $weekDays, $every)
+            .compactMap { tuple in self.occurance(tuple.0, tuple.1, tuple.2) }
+            .eraseToAnyPublisher()
+    }
+
+    private func occurance(_ frequency: Frequency, _ weekDays: [WeekDay], _ every: UInt) -> ReminderOccurrence {
         let occurance: ReminderOccurrence
         switch frequency {
         case .daily:
             occurance = .daily(every)
         case .weekly:
             occurance = .weekly(every, weekDays)
-        case .monthly:
-            occurance = .monthly(every, MonthlyOccurance.each([1, 2]))
         }
-        return occurance.description.firstCapitalized
+        return occurance
     }
 
     var frequencyDescription: String {
@@ -41,8 +62,6 @@ final class ReminderFrequencyModel: ObservableObject {
             return every == 1 ? "day" : "\(every) days"
         case .weekly:
             return every == 1 ? "week" : "\(every) weeks"
-        case .monthly:
-            return every == 1 ? "month" : "\(every) months"
         }
     }
 

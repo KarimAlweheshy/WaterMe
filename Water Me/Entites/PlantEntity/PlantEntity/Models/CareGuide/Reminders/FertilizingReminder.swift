@@ -10,4 +10,5 @@ import Foundation
 
 public struct FertilizingReminder: CareReminder {
     public let id: Int
+    public var occurance: ReminderOccurrence
 }

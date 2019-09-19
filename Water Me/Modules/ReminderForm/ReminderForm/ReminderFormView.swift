@@ -64,7 +64,7 @@ extension ReminderFormView {
     private func reminderInterval() -> some View {
         NavigationLink(
             "Remind me \(model.reminderOccurance.description)",
-            destination: ReminderFrequencyView(model: .init())
+            destination: ReminderFrequencyView(model: model.reminderFrequencyModel)
         )
     }
 }
