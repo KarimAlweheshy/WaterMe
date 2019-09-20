@@ -61,8 +61,14 @@ extension PlantFormView {
 extension PlantFormView {
     private func plantDetailsSection() -> some View {
         section(title: "Plant Details") {
-            TextField("Plant nick name", text: $model.nickName)
-            TextField("Botanical name", text: $model.botanicalName)
+            HStack {
+                Image(systemName: "smiley")
+                TextField("Plant nick name", text: $model.nickName)
+            }
+            HStack {
+                Text("⚘").font(.title)
+                TextField("Botanical name", text: $model.botanicalName)
+            }
             plantImagesSection()
         }
     }
@@ -70,9 +76,10 @@ extension PlantFormView {
     private func plantImagesSection() -> some View {
         VStack(alignment: .leading) {
             HStack {
+                Image(systemName: "plus.app")
                 Text(model.images.isEmpty ? "Pick images for your plant" : "Images")
                 Spacer()
-                PickImagesButton(title: "Pick", images: $model.images)
+                PickImagesButton(model: model.pickImagesModel)
             }
             HStack {
                 ForEach(model.images, id: \.self) {
@@ -99,23 +106,29 @@ extension PlantFormView {
     }
 
     private func sunlightSection() -> some View {
-        Picker(selection: $model.sunlight,
-               label: Text("Sunlgiht")
-        ) {
-            ForEach(Sunlight.allCases, id: \.self) {
-                Text($0.rawValue)
+        HStack {
+            Image(systemName: "sun.max")
+            Picker(selection: $model.sunlight,
+                   label: Text("Sunlgiht")
+            ) {
+                ForEach(Sunlight.allCases, id: \.self) {
+                    Text($0.rawValue)
+                }
             }
         }
     }
 
     private func plantSoilSection() -> some View {
-         Picker(selection: $model.soil,
-                label: Text("Soil")
-         ) {
-             ForEach(Soil.allCases, id: \.self) {
-                 Text($0.rawValue)
+        HStack {
+            Image(systemName: "globe")
+             Picker(selection: $model.soil,
+                    label: Text("Soil")
+             ) {
+                 ForEach(Soil.allCases, id: \.self) {
+                     Text($0.rawValue)
+                 }
              }
-         }
+        }
      }
 }
 

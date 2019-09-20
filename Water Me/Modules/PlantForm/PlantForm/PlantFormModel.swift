@@ -9,6 +9,7 @@
 import Combine
 import PlantEntity
 import UIKit
+import Common
 
 public final class PlantFormModel: ObservableObject {
     @Published var nickName: String
@@ -19,6 +20,7 @@ public final class PlantFormModel: ObservableObject {
 
     private let store: PlantsStore
     private let id: Int?
+    private var cancelableSubs = Set<AnyCancellable>()
 
     public init(store: PlantsStore, plant: Plant? = nil) {
         self.store = store
@@ -46,6 +48,12 @@ public final class PlantFormModel: ObservableObject {
             store.insert(new: plant)
         }
     }
+
+    lazy var pickImagesModel: PickImagesModel = {
+        let model = PickImagesModel(title: "Pick", images: images)
+        model.publisher.assign(to: \.images, on: self).store(in: &cancelableSubs)
+        return model
+    }()
 }
 
 // MARK: - Private Methods

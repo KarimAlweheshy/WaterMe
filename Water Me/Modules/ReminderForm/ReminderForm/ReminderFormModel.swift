@@ -9,16 +9,18 @@
 import Combine
 import PlantEntity
 import UIKit
+import Common
 
 public final class ReminderFormModel: ObservableObject {
-    private let store: PlantsStore
-    private let plantID: Int
-    private let reminderID: Int?
-
     @Published var type: ReminderType
     @Published var images = [UIImage]()
     @Published var reminderOccurance: ReminderOccurrence
     @Published var notes = ""
+    
+    private let store: PlantsStore
+    private let plantID: Int
+    private let reminderID: Int?
+    private var cancelableSubs = Set<AnyCancellable>()
 
     var subs = Set<AnyCancellable>()
     lazy var reminderFrequencyModel: ReminderFrequencyModel = {
@@ -44,4 +46,10 @@ public final class ReminderFormModel: ObservableObject {
     func save() {
 
     }
+
+    lazy var pickImagesModel: PickImagesModel = {
+        let model = PickImagesModel(title: "Pick", images: images)
+        model.publisher.assign(to: \.images, on: self).store(in: &cancelableSubs)
+        return model
+    }()
 }

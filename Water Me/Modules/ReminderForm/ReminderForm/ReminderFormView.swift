@@ -63,9 +63,13 @@ extension ReminderFormView {
 extension ReminderFormView {
     private func reminderInterval() -> some View {
         NavigationLink(
-            "Remind me \(model.reminderOccurance.description)",
             destination: ReminderFrequencyView(model: model.reminderFrequencyModel)
-        )
+        ) {
+            HStack {
+                Image(systemName: "repeat")
+                Text("Remind me \(model.reminderOccurance.description)")
+            }
+        }
     }
 }
 
@@ -74,9 +78,10 @@ extension ReminderFormView {
     private func attachmentsSection() -> some View {
         VStack(alignment: .leading) {
             HStack {
+                Image(systemName: "plus.app")
                 Text(model.images.isEmpty ? "Add attachments" : "Attachments")
                 Spacer()
-                PickImagesButton(title: "Pick", images: $model.images)
+                PickImagesButton(model: model.pickImagesModel)
             }
             HStack {
                 ForEach(model.images, id: \.self) {
@@ -97,9 +102,10 @@ extension ReminderFormView {
 extension ReminderFormView {
     private func extrasSection() -> some View {
         Section(header: Text("Extras").font(.title)) {
-            TextField("Notes", text: $model.notes)
-                .frame(minWidth: 0, maxWidth: .infinity,
-                       minHeight: 0, maxHeight: .infinity)
+            HStack {
+                Image(systemName: "doc")
+                TextField("Notes", text: $model.notes).lineLimit(3)
+            }
             attachmentsSection()
         }
     }
@@ -108,11 +114,14 @@ extension ReminderFormView {
 // MARK: - Type Picker
 extension ReminderFormView {
     private func reminderTypePicker() -> some View {
-        Picker(selection: $model.type,
-               label: Text("About")
-        ) {
-            ForEach(ReminderType.allCases, id: \.self) {
-                Text($0.rawValue)
+        HStack {
+            Image(systemName: "info.circle")
+            Picker(selection: $model.type,
+                   label: Text("About")
+            ) {
+                ForEach(ReminderType.allCases, id: \.self) {
+                    Text($0.rawValue)
+                }
             }
         }
     }
