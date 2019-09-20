@@ -15,7 +15,7 @@ struct PlantListCellView: View {
     let plant: Plant
 
     var body: some View {
-        NavigationLink(destination: PlantDetailsView(plant: plant).environmentObject(plantsStore)) {
+        NavigationLink(destination: PlantDetailsView(viewModel: .init(plantsStore: plantsStore, plant: plant))) {
             Text(plant.nickName)
         }
     }

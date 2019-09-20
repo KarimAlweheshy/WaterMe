@@ -12,43 +12,32 @@ import PlantForm
 import ReminderForm
 
 public struct PlantDetailsView: View {
-    @EnvironmentObject var plantsStore: PlantsStore
-    @State private var showsPlantFormView = false
-    @State private var showsReminderFormView = false
-    private let plant: Plant
+    @ObservedObject var viewModel: PlantDetailsViewModel
 
-    public init(plant: Plant) {
-        self.plant = plant
+    public init(viewModel: PlantDetailsViewModel) {
+        self.viewModel = viewModel
     }
 
     public var body: some View {
         VStack {
-            Text(plant.nickName)
+            Text(viewModel.nickName)
             addReminder()
         }
-        .navigationBarTitle(plant.nickName)
+        .navigationBarTitle(viewModel.nickName)
         .navigationBarItems(trailing: editButton())
     }
 
     private func editButton() -> some View {
-        Button(action: showPlantForm) { Text("Edit") }
-            .sheet(isPresented: $showsPlantFormView) {
-                PlantFormView(model: .init(store: self.plantsStore, plant: self.plant))
+        Button(action: viewModel.showPlantForm) { Text("Edit") }
+            .sheet(isPresented: $viewModel.showsPlantFormView) {
+                PlantFormView(model: self.viewModel.plantFormViewModel())
             }
     }
 
     private func addReminder() -> some View {
-        Button(action: showReminderForm) { Text("Add Reminder") }
-            .sheet(isPresented: $showsReminderFormView) {
-                ReminderFormView(model: .init(store: self.plantsStore, plantID: self.plant.id))
+        Button(action: viewModel.showReminderForm) { Text("Add Reminder") }
+            .sheet(isPresented: $viewModel.showsReminderFormView) {
+                ReminderFormView(model: self.viewModel.reminderFormViewModel())
             }
-    }
-
-    private func showPlantForm() {
-        showsPlantFormView = true
-    }
-
-    private func showReminderForm() {
-        showsReminderFormView = true
     }
 }
