@@ -11,12 +11,11 @@ import PlantEntity
 import PlantDetails
 
 struct PlantListCellView: View {
-    @EnvironmentObject var plantsStore: PlantsStore
-    let plant: Plant
+    @ObservedObject var viewModel: PlantListCellViewModel
 
     var body: some View {
-        NavigationLink(destination: PlantDetailsView(viewModel: .init(plantsStore: plantsStore, plant: plant))) {
-            Text(plant.nickName)
+        NavigationLink(destination: viewModel.plantDetailsView) {
+            Text(viewModel.nickName)
         }
     }
 }
