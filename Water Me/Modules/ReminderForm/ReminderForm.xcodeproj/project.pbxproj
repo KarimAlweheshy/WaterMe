@@ -10,17 +10,17 @@
 		45BF148F2330F0C400C5DF95 /* ReminderForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF14852330F0C300C5DF95 /* ReminderForm.framework */; };
 		45BF14942330F0C400C5DF95 /* ReminderFormTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14932330F0C400C5DF95 /* ReminderFormTests.swift */; };
 		45BF14B32330F0D600C5DF95 /* ReminderFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14B22330F0D600C5DF95 /* ReminderFormView.swift */; };
-		45BF14B52330F69800C5DF95 /* ReminderFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14B42330F69800C5DF95 /* ReminderFormModel.swift */; };
+		45BF14B52330F69800C5DF95 /* ReminderFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14B42330F69800C5DF95 /* ReminderFormViewModel.swift */; };
 		45BF14BD2330F9A300C5DF95 /* PlantEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF14BC2330F9A300C5DF95 /* PlantEntity.framework */; };
 		45BF14BE2330F9A300C5DF95 /* PlantEntity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF14BC2330F9A300C5DF95 /* PlantEntity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45BF14C12330FB0A00C5DF95 /* ReminderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14C02330FB0A00C5DF95 /* ReminderType.swift */; };
 		45BF14C323310D4300C5DF95 /* WaterReminderFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14C223310D4300C5DF95 /* WaterReminderFormView.swift */; };
-		45BF14C623310D5500C5DF95 /* WaterReminderFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14C523310D5500C5DF95 /* WaterReminderFormModel.swift */; };
+		45BF14C623310D5500C5DF95 /* WaterReminderFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14C523310D5500C5DF95 /* WaterReminderFormViewModel.swift */; };
 		45BF14C923310DFA00C5DF95 /* UnitVolume+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF14C823310DFA00C5DF95 /* UnitVolume+CaseIterable.swift */; };
 		45F1E47023315BE800939D80 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45F1E46F23315BE800939D80 /* Common.framework */; };
 		45F1E47123315BE800939D80 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45F1E46F23315BE800939D80 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45F6437123312E6000CA8FE6 /* ReminderFrequencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6437023312E6000CA8FE6 /* ReminderFrequencyView.swift */; };
-		45F6437423312EDF00CA8FE6 /* ReminderFrequencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6437323312EDF00CA8FE6 /* ReminderFrequencyModel.swift */; };
+		45F6437423312EDF00CA8FE6 /* ReminderFrequencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6437323312EDF00CA8FE6 /* ReminderFrequencyViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,15 +55,15 @@
 		45BF14932330F0C400C5DF95 /* ReminderFormTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormTests.swift; sourceTree = "<group>"; };
 		45BF14952330F0C400C5DF95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45BF14B22330F0D600C5DF95 /* ReminderFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormView.swift; sourceTree = "<group>"; };
-		45BF14B42330F69800C5DF95 /* ReminderFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormModel.swift; sourceTree = "<group>"; };
+		45BF14B42330F69800C5DF95 /* ReminderFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFormViewModel.swift; sourceTree = "<group>"; };
 		45BF14BC2330F9A300C5DF95 /* PlantEntity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlantEntity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BF14C02330FB0A00C5DF95 /* ReminderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderType.swift; sourceTree = "<group>"; };
 		45BF14C223310D4300C5DF95 /* WaterReminderFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterReminderFormView.swift; sourceTree = "<group>"; };
-		45BF14C523310D5500C5DF95 /* WaterReminderFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterReminderFormModel.swift; sourceTree = "<group>"; };
+		45BF14C523310D5500C5DF95 /* WaterReminderFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterReminderFormViewModel.swift; sourceTree = "<group>"; };
 		45BF14C823310DFA00C5DF95 /* UnitVolume+CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitVolume+CaseIterable.swift"; sourceTree = "<group>"; };
 		45F1E46F23315BE800939D80 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F6437023312E6000CA8FE6 /* ReminderFrequencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFrequencyView.swift; sourceTree = "<group>"; };
-		45F6437323312EDF00CA8FE6 /* ReminderFrequencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFrequencyModel.swift; sourceTree = "<group>"; };
+		45F6437323312EDF00CA8FE6 /* ReminderFrequencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFrequencyViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,7 @@
 			children = (
 				45BF14892330F0C300C5DF95 /* Info.plist */,
 				45BF14B22330F0D600C5DF95 /* ReminderFormView.swift */,
-				45BF14B42330F69800C5DF95 /* ReminderFormModel.swift */,
+				45BF14B42330F69800C5DF95 /* ReminderFormViewModel.swift */,
 				45BF14C02330FB0A00C5DF95 /* ReminderType.swift */,
 				45BF14C823310DFA00C5DF95 /* UnitVolume+CaseIterable.swift */,
 				45BF14C423310D4700C5DF95 /* Reminders */,
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				45BF14C223310D4300C5DF95 /* WaterReminderFormView.swift */,
-				45BF14C523310D5500C5DF95 /* WaterReminderFormModel.swift */,
+				45BF14C523310D5500C5DF95 /* WaterReminderFormViewModel.swift */,
 			);
 			path = Water;
 			sourceTree = "<group>";
@@ -159,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				45F6437023312E6000CA8FE6 /* ReminderFrequencyView.swift */,
-				45F6437323312EDF00CA8FE6 /* ReminderFrequencyModel.swift */,
+				45F6437323312EDF00CA8FE6 /* ReminderFrequencyViewModel.swift */,
 			);
 			path = Frequency;
 			sourceTree = "<group>";
@@ -274,10 +274,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45F6437423312EDF00CA8FE6 /* ReminderFrequencyModel.swift in Sources */,
+				45F6437423312EDF00CA8FE6 /* ReminderFrequencyViewModel.swift in Sources */,
 				45BF14B32330F0D600C5DF95 /* ReminderFormView.swift in Sources */,
-				45BF14B52330F69800C5DF95 /* ReminderFormModel.swift in Sources */,
-				45BF14C623310D5500C5DF95 /* WaterReminderFormModel.swift in Sources */,
+				45BF14B52330F69800C5DF95 /* ReminderFormViewModel.swift in Sources */,
+				45BF14C623310D5500C5DF95 /* WaterReminderFormViewModel.swift in Sources */,
 				45BF14C323310D4300C5DF95 /* WaterReminderFormView.swift in Sources */,
 				45F6437123312E6000CA8FE6 /* ReminderFrequencyView.swift in Sources */,
 				45BF14C12330FB0A00C5DF95 /* ReminderType.swift in Sources */,

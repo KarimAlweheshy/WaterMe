@@ -29,7 +29,7 @@ public final class PlantDetailsViewModel: ObservableObject {
         .init(store: plantsStore, plant: plant)
     }
 
-    func reminderFormViewModel() -> ReminderFormModel {
+    func reminderFormViewModel() -> ReminderFormViewModel {
         .init(store: plantsStore, plantID: plant.id)
     }
 

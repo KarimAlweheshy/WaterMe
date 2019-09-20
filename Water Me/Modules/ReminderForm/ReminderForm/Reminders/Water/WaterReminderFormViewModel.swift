@@ -1,5 +1,5 @@
 //
-//  WaterReminderFormModel.swift
+//  WaterReminderFormViewModel.swift
 //  ReminderForm
 //
 //  Created by Karim Alweheshy on 17.09.19.
@@ -11,7 +11,7 @@ import Combine
 import PlantEntity
 import UIKit
 
-final class WaterReminderFormModel: ObservableObject {
+final class WaterReminderFormViewModel: ObservableObject {
     @Published var waterUnit: UnitVolume = .liters
     @Published var waterValue: Double = 1
     @Published var lastWattered: Date = Calendar.current.startOfDay(for: Date())

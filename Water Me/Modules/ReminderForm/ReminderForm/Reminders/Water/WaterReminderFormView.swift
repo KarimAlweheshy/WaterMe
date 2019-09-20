@@ -10,7 +10,7 @@ import SwiftUI
 import Common
 
 struct WaterReminderFormView: View {
-    @ObservedObject public var model: WaterReminderFormModel
+    @ObservedObject public var model: WaterReminderFormViewModel
     
     var body: some View {
         Group {

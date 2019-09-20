@@ -10,9 +10,9 @@ import SwiftUI
 import PlantEntity
 
 struct ReminderFrequencyView: View {
-    @ObservedObject var model: ReminderFrequencyModel
+    @ObservedObject var model: ReminderFrequencyViewModel
 
-    public init(model: ReminderFrequencyModel) {
+    public init(model: ReminderFrequencyViewModel) {
         self.model = model
     }
 
@@ -37,7 +37,7 @@ extension ReminderFrequencyView {
         Picker(selection: $model.frequency,
                       label: Text("Frequency")
         ) {
-            ForEach(ReminderFrequencyModel.Frequency.allCases, id: \.self) {
+            ForEach(ReminderFrequencyViewModel.Frequency.allCases, id: \.self) {
                 Text($0.rawValue)
             }
         }

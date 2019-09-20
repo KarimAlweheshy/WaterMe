@@ -1,5 +1,5 @@
 //
-//  ReminderFrequencyModel.swift
+//  ReminderFrequencyViewModel.swift
 //  ReminderForm
 //
 //  Created by Karim Alweheshy on 17.09.19.
@@ -11,7 +11,7 @@ import Combine
 import PlantEntity
 import Common
 
-final class ReminderFrequencyModel: ObservableObject {
+final class ReminderFrequencyViewModel: ObservableObject {
     enum Frequency: String, CaseIterable {
         case daily = "Daily"
         case weekly = "Weekly"
@@ -36,7 +36,7 @@ final class ReminderFrequencyModel: ObservableObject {
 }
 
 // MARK: - Public Methods
-extension ReminderFrequencyModel {
+extension ReminderFrequencyViewModel {
     var occurancePublisher: AnyPublisher<ReminderOccurrence, Never> {
         Publishers.CombineLatest3($frequency, $weekDays, $every)
             .compactMap(occurance)
@@ -45,7 +45,7 @@ extension ReminderFrequencyModel {
 }
 
 // MARK: - Internal Methods
-extension ReminderFrequencyModel {
+extension ReminderFrequencyViewModel {
     var description: String {
         let occurance = self.occurance(frequency: frequency, weekDays: weekDays, every: every)
         return occurance.description.firstCapitalized
@@ -75,7 +75,7 @@ extension ReminderFrequencyModel {
 }
 
 // MARK: - Private Methods
-extension ReminderFrequencyModel {
+extension ReminderFrequencyViewModel {
     private func occurance(frequency: Frequency, weekDays: [WeekDay], every: UInt) -> ReminderOccurrence {
         let occurance: ReminderOccurrence
         switch frequency {

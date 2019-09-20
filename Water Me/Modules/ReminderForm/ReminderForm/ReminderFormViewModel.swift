@@ -1,5 +1,5 @@
 //
-//  ReminderFormModel.swift
+//  ReminderFormViewModel.swift
 //  ReminderForm
 //
 //  Created by Karim Alweheshy on 17.09.19.
@@ -11,7 +11,7 @@ import PlantEntity
 import UIKit
 import Common
 
-public final class ReminderFormModel: ObservableObject {
+public final class ReminderFormViewModel: ObservableObject {
     @Published var type: ReminderType
     @Published var images = [UIImage]()
     @Published var reminderOccurance: ReminderOccurrence
@@ -23,8 +23,8 @@ public final class ReminderFormModel: ObservableObject {
     private var cancelableSubs = Set<AnyCancellable>()
 
     var subs = Set<AnyCancellable>()
-    lazy var reminderFrequencyModel: ReminderFrequencyModel = {
-        let model = ReminderFrequencyModel(occurance: reminderOccurance)
+    lazy var reminderFrequencyModel: ReminderFrequencyViewModel = {
+        let model = ReminderFrequencyViewModel(occurance: reminderOccurance)
         model.occurancePublisher
             .assign(to: \.reminderOccurance, on: self)
             .store(in: &subs)

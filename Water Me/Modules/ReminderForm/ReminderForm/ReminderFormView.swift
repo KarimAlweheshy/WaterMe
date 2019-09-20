@@ -11,9 +11,9 @@ import Common
 
 public struct ReminderFormView: View {
     @Environment(\.presentationMode) var presentation
-    @ObservedObject public var model: ReminderFormModel
+    @ObservedObject public var model: ReminderFormViewModel
 
-    public init(model: ReminderFormModel) {
+    public init(model: ReminderFormViewModel) {
         self.model = model
     }
 
