@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4513DAEA233635CD002B4251 /* PlantActivityForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4513DAE9233635CD002B4251 /* PlantActivityForm.framework */; };
 		4513DAEB233635CD002B4251 /* PlantActivityForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4513DAE9233635CD002B4251 /* PlantActivityForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4513DAF92336422B002B4251 /* PlantDetailsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4513DAF82336422B002B4251 /* PlantDetailsFactory.swift */; };
 		453CE5EB2334CDFD001362EF /* PlantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453CE5EA2334CDFD001362EF /* PlantDetailsViewModel.swift */; };
 		45B7529B232937A3006B4ED7 /* PlantDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B75291232937A3006B4ED7 /* PlantDetails.framework */; };
 		45B752A0232937A3006B4ED7 /* PlantDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7529F232937A3006B4ED7 /* PlantDetailsTests.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		4513DAE9233635CD002B4251 /* PlantActivityForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlantActivityForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4513DAF82336422B002B4251 /* PlantDetailsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsFactory.swift; sourceTree = "<group>"; };
 		453CE5EA2334CDFD001362EF /* PlantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsViewModel.swift; sourceTree = "<group>"; };
 		45B75291232937A3006B4ED7 /* PlantDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlantDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B75295232937A3006B4ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				45B75295232937A3006B4ED7 /* Info.plist */,
+				4513DAF82336422B002B4251 /* PlantDetailsFactory.swift */,
 				45B752B4232937B8006B4ED7 /* PlantDetailsView.swift */,
 				453CE5EA2334CDFD001362EF /* PlantDetailsViewModel.swift */,
 			);
@@ -236,6 +239,7 @@
 			files = (
 				45B752B5232937B8006B4ED7 /* PlantDetailsView.swift in Sources */,
 				453CE5EB2334CDFD001362EF /* PlantDetailsViewModel.swift in Sources */,
+				4513DAF92336422B002B4251 /* PlantDetailsFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

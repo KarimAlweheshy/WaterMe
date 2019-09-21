@@ -12,7 +12,7 @@ import PlantEntity
 import PlantForm
 import PlantActivityForm
 
-public final class PlantDetailsViewModel: ObservableObject {
+final class PlantDetailsViewModel: ObservableObject {
     @Published var showsPlantFormView = false
     @Published var showsReminderFormView = false
     @Published var nickName: String
@@ -20,7 +20,7 @@ public final class PlantDetailsViewModel: ObservableObject {
     private let plantsStore: PlantsStore
     private let plant: Plant
 
-    public init(plantsStore: PlantsStore, plant: Plant) {
+    init(plantsStore: PlantsStore, plant: Plant) {
         self.plantsStore = plantsStore
         self.plant = plant
         nickName =  plant.nickName

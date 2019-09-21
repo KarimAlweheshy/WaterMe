@@ -25,6 +25,6 @@ final class PlantListCellViewModel: ObservableObject {
     }
 
     var plantDetailsView: some View {
-        PlantDetailsView(viewModel: .init(plantsStore: plantsStore, plant: plant))
+        PlantDetailsFactory().make(plantsStore: plantsStore, plant: plant)
     }
 }

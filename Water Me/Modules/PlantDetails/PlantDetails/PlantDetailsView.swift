@@ -10,14 +10,14 @@ import SwiftUI
 import PlantEntity
 import PlantForm
 
-public struct PlantDetailsView: View {
+struct PlantDetailsView: View {
     @ObservedObject var viewModel: PlantDetailsViewModel
 
-    public init(viewModel: PlantDetailsViewModel) {
+    init(viewModel: PlantDetailsViewModel) {
         self.viewModel = viewModel
     }
 
-    public var body: some View {
+    var body: some View {
         VStack {
             Text(viewModel.nickName)
             addReminder()
@@ -25,7 +25,10 @@ public struct PlantDetailsView: View {
         .navigationBarTitle(viewModel.nickName)
         .navigationBarItems(trailing: editButton())
     }
+}
 
+// MARK: - Private Methods
+extension PlantDetailsView {
     private func editButton() -> some View {
         Button(action: viewModel.showPlantForm) { Text("Edit") }
             .sheet(isPresented: $viewModel.showsPlantFormView) {
