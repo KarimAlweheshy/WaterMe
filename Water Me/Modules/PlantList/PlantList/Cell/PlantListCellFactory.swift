@@ -10,7 +10,15 @@ import SwiftUI
 import PlantEntity
 
 struct PlantListCellFactory {
-    func make(plantsStore: PlantsStore, plant: Plant) -> some View {
-        PlantListCellView(viewModel: .init(plantsStore: plantsStore, plant: plant))
+    func make(
+        plantsStore: PlantsStore,
+        plant: Plant,
+        isEditing: Published<Bool>
+    ) -> some View {
+        PlantListCellView(
+            viewModel: .init(plantsStore: plantsStore,
+                             plant: plant,
+                             isEditing: isEditing)
+        )
     }
 }

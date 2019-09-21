@@ -6,29 +6,34 @@
 //  Copyright © 2019 Karim. All rights reserved.
 //
 
+import Combine
 import SwiftUI
 import PlantEntity
 import PlantForm
 
-final class PlantListViewModel: ObservableObject {
+final class PlantListViewModel: ObservableObject, Identifiable {
     @Published var showsFormView = false
-    @Published var isEditable = false
+    @Published var isEditing = false
     @Published var plantsStore: PlantsStore
+    @Published var cellIDs = [Int]()
+
+    private var cancellableSet: Set<AnyCancellable> = []
 
     init(plantsStore: PlantsStore) {
         self.plantsStore = plantsStore
-    }
-
-    var cellsCount: Range<Int> {
-        0..<plantsStore.allPlants.count
+        plantsStore.$allPlants
+            .map { allPlants in allPlants.compactMap { plant in plant.id } }
+            .assign(to: \.cellIDs, on: self)
+            .store(in: &cancellableSet)
     }
 
     func plantFormView() -> some View {
         PlantFormView(model: .init(store: self.plantsStore))
     }
 
-    func cell(for index: Int) -> some View {
-        PlantListCellFactory().make(plantsStore: plantsStore, plant: plantsStore.allPlants[index])
+    func cell(for cellID: Int) -> some View {
+        guard let plant = plantsStore.allPlants.first(where: { $0.id == cellID }) else { fatalError() }
+        return PlantListCellFactory().make(plantsStore: plantsStore, plant: plant, isEditing: _isEditing)
     }
 
     func delete(at offsets: IndexSet) {
@@ -43,11 +48,27 @@ final class PlantListViewModel: ObservableObject {
     }
 
     func showForm() {
-        isEditable = false
+        isEditing = false
         showsFormView = true
     }
 
-    func toggleEditing() {
-        isEditable.toggle()
+    func didTapEdit() {
+        isEditing.toggle()
+    }
+
+    var showsEmptyView: Bool {
+        plantsStore.allPlants.isEmpty
+    }
+
+    var showsEditNavigationButton: Bool {
+        !showsEmptyView && !isEditing
+    }
+
+    func didTapTraillingNavigationButton() {
+        isEditing ? isEditing.toggle() : showForm() 
+    }
+
+    var traillingNavigationButtonTitle: String {
+        isEditing ? "Done" : "Add"
     }
 }

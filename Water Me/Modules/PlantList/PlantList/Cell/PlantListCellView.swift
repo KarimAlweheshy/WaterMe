@@ -14,8 +14,14 @@ struct PlantListCellView: View {
     @ObservedObject var viewModel: PlantListCellViewModel
 
     var body: some View {
-        NavigationLink(destination: viewModel.plantDetailsView) {
-            Text(viewModel.nickName)
+        Group {
+            if self.viewModel.isEditing {
+                Text(viewModel.nickName)
+            } else {
+                NavigationLink(destination: viewModel.plantDetailsView) {
+                    Text(viewModel.nickName)
+                }
+            }
         }
     }
 }

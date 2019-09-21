@@ -1,5 +1,5 @@
 //
-//  ReminderOccurrence.swift
+//  Occurrence.swift
 //  PlantEntity
 //
 //  Created by Karim Alweheshy on 17.09.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ReminderOccurrence: Codable, CustomStringConvertible {
+public enum Occurrence: Codable, CustomStringConvertible {
     case daily(UInt)
     case weekly(UInt, [WeekDay])
 

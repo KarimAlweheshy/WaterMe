@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4513DAEA233635CD002B4251 /* PlantActivityForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4513DAE9233635CD002B4251 /* PlantActivityForm.framework */; };
+		4513DAEB233635CD002B4251 /* PlantActivityForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4513DAE9233635CD002B4251 /* PlantActivityForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		453CE5EB2334CDFD001362EF /* PlantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453CE5EA2334CDFD001362EF /* PlantDetailsViewModel.swift */; };
 		45B7529B232937A3006B4ED7 /* PlantDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B75291232937A3006B4ED7 /* PlantDetails.framework */; };
 		45B752A0232937A3006B4ED7 /* PlantDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7529F232937A3006B4ED7 /* PlantDetailsTests.swift */; };
 		45B752B5232937B8006B4ED7 /* PlantDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B752B4232937B8006B4ED7 /* PlantDetailsView.swift */; };
 		45B752F1232BB627006B4ED7 /* PlantEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B752F0232BB627006B4ED7 /* PlantEntity.framework */; };
 		45B752F2232BB627006B4ED7 /* PlantEntity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45B752F0232BB627006B4ED7 /* PlantEntity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		45BF14B92330F99600C5DF95 /* ReminderForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF14B82330F99600C5DF95 /* ReminderForm.framework */; };
-		45BF14BA2330F99600C5DF95 /* ReminderForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45BF14B82330F99600C5DF95 /* ReminderForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +34,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				45BF14BA2330F99600C5DF95 /* ReminderForm.framework in Embed Frameworks */,
 				45B752F2232BB627006B4ED7 /* PlantEntity.framework in Embed Frameworks */,
+				4513DAEB233635CD002B4251 /* PlantActivityForm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +43,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4513DAE9233635CD002B4251 /* PlantActivityForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlantActivityForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453CE5EA2334CDFD001362EF /* PlantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantDetailsViewModel.swift; sourceTree = "<group>"; };
 		45B75291232937A3006B4ED7 /* PlantDetails.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlantDetails.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B75295232937A3006B4ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,8 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BF14B92330F99600C5DF95 /* ReminderForm.framework in Frameworks */,
 				45B752F1232BB627006B4ED7 /* PlantEntity.framework in Frameworks */,
+				4513DAEA233635CD002B4251 /* PlantActivityForm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +117,7 @@
 		45B752EF232BB627006B4ED7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4513DAE9233635CD002B4251 /* PlantActivityForm.framework */,
 				45BF14B82330F99600C5DF95 /* ReminderForm.framework */,
 				45B752F0232BB627006B4ED7 /* PlantEntity.framework */,
 			);

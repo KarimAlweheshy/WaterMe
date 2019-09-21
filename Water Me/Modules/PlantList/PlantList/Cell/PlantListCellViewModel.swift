@@ -12,14 +12,16 @@ import PlantDetails
 
 final class PlantListCellViewModel: ObservableObject {
     @Published var nickName: String
+    @Published var isEditing: Bool = false
 
     private let plantsStore: PlantsStore
     private let plant: Plant
 
-    init(plantsStore: PlantsStore, plant: Plant) {
+    init(plantsStore: PlantsStore, plant: Plant, isEditing: Published<Bool>) {
         self.plantsStore = plantsStore
         self.plant = plant
         nickName = plant.nickName
+        _isEditing = isEditing
     }
 
     var plantDetailsView: some View {

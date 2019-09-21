@@ -15,24 +15,40 @@ struct PlantListView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.cellsCount, id: \.self) { self.viewModel.cell(for: $0) }
-                    .onMove(perform: viewModel.move)
-                    .onDelete(perform: viewModel.delete)
-            }
-            .listStyle(GroupedListStyle())
-            .environment(\.editMode, viewModel.isEditable ? .constant(.active) : .constant(.inactive))
-            .navigationBarTitle(Text("My plants"))
-            .navigationBarItems(leading: editButton(), trailing: addButton())
+            mainView()
+                .navigationBarTitle(Text("My plants"))
+                .navigationBarItems(leading: leadingButton(), trailing: traillingButton())
         }
         .sheet(isPresented: $viewModel.showsFormView, content: viewModel.plantFormView)
     }
 
-    private func addButton() -> some View {
-        Button(action: viewModel.showForm) { Text("Add") }
+    private func mainView() -> some View {
+        Group {
+            if viewModel.showsEmptyView {
+                Text("Add plants to your garden")
+            } else {
+                List {
+                    ForEach(viewModel.cellIDs, id: \.self, content: viewModel.cell(for:))
+                        .onMove(perform: viewModel.move)
+                        .onDelete(perform: viewModel.delete)
+                }
+                .listStyle(GroupedListStyle())
+                .environment(\.editMode, viewModel.isEditing ? .constant(.active) : .constant(.inactive))
+            }
+        }
     }
 
-    private func editButton() -> some View {
-        Button(action: viewModel.toggleEditing) { Text("Edit") }
+    private func traillingButton() -> some View {
+        Button(action: viewModel.didTapTraillingNavigationButton) {
+            Text(viewModel.traillingNavigationButtonTitle)
+        }
+    }
+
+    private func leadingButton() -> some View {
+        Group {
+            if viewModel.showsEditNavigationButton {
+                Button(action: viewModel.didTapEdit) { Text("Edit") }
+            }
+        }
     }
 }

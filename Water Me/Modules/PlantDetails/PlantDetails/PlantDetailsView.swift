@@ -9,7 +9,6 @@
 import SwiftUI
 import PlantEntity
 import PlantForm
-import ReminderForm
 
 public struct PlantDetailsView: View {
     @ObservedObject var viewModel: PlantDetailsViewModel
@@ -30,14 +29,14 @@ public struct PlantDetailsView: View {
     private func editButton() -> some View {
         Button(action: viewModel.showPlantForm) { Text("Edit") }
             .sheet(isPresented: $viewModel.showsPlantFormView) {
-                PlantFormView(model: self.viewModel.plantFormViewModel())
+                self.viewModel.plantFormView()
             }
     }
 
     private func addReminder() -> some View {
-        Button(action: viewModel.showReminderForm) { Text("Add Reminder") }
+        Button(action: viewModel.showReminderForm) { Text("Add Activity") }
             .sheet(isPresented: $viewModel.showsReminderFormView) {
-                ReminderFormView(model: self.viewModel.reminderFormViewModel())
+                self.viewModel.plantActivityFormView()
             }
     }
 }

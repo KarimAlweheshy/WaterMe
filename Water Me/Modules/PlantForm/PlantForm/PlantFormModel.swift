@@ -27,20 +27,19 @@ public final class PlantFormModel: ObservableObject {
         id = plant?.id
         nickName = plant?.nickName ?? ""
         botanicalName = plant?.botanicalName ?? ""
-        soil = plant?.careGuide.requirements.soil ?? .neutral
-        sunlight = plant?.careGuide.requirements.sunlight ?? .partialShade
+        soil = plant?.soil ?? .neutral
+        sunlight = plant?.sunlight ?? .partialShade
         images = plant?.imagesURL.compactMap { UIImage(contentsOfFile: $0.path) } ?? [UIImage]()
     }
 
     func save() {
-        let requirements = CareGuideRequirements(sunlight: sunlight,
-                                                 soil: soil)
-        let careGuide = CareGuide(requirements: requirements, reminders: [CareReminder]())
         let plant = Plant(id: id ?? Int.random(in: 0...Int.max),
                           nickName: nickName,
                           botanicalName: botanicalName,
                           imagesURL: imageURLs(for: images),
-                          careGuide: careGuide)
+                          sunlight: sunlight,
+                          soil: soil,
+                          activities: .init())
 
         if let id = id, let oldPlant = store.allPlants.first(where: { $0.id == id }) {
             store.update(old: oldPlant, new: plant)

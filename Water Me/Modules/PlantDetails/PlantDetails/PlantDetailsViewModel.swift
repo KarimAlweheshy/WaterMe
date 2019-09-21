@@ -6,10 +6,11 @@
 //  Copyright © 2019 Karim. All rights reserved.
 //
 
+import SwiftUI
 import Combine
 import PlantEntity
 import PlantForm
-import ReminderForm
+import PlantActivityForm
 
 public final class PlantDetailsViewModel: ObservableObject {
     @Published var showsPlantFormView = false
@@ -25,12 +26,24 @@ public final class PlantDetailsViewModel: ObservableObject {
         nickName =  plant.nickName
     }
 
-    func plantFormViewModel() -> PlantFormModel {
-        .init(store: plantsStore, plant: plant)
+    func plantFormView() -> some View {
+        PlantFormView(model: .init(store: plantsStore, plant: plant))
     }
 
-    func reminderFormViewModel() -> ReminderFormViewModel {
-        .init(store: plantsStore, plantID: plant.id)
+    func plantActivityFormView() -> some View {
+        let reminder = Reminder(
+            id: Int.random(in: 0...Int.max),
+            occurrence: .daily(1)
+        )
+        let activity = WaterPlantActivity(
+            logs: [LogEntry](),
+            reminder: reminder
+        )
+        return PlantActivityFormFactory().make(
+            store: plantsStore,
+            plantID: plant.id,
+            activity: activity
+        )
     }
 
     func showPlantForm() {

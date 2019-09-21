@@ -10,19 +10,20 @@
 		453604AA2326A43C00EDA73D /* PlantEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453604A02326A43C00EDA73D /* PlantEntity.framework */; };
 		453604AF2326A43C00EDA73D /* PlantEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453604AE2326A43C00EDA73D /* PlantEntityTests.swift */; };
 		453604C42326A44B00EDA73D /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453604C32326A44B00EDA73D /* Plant.swift */; };
-		453604CE2326A64B00EDA73D /* CareGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453604CD2326A64B00EDA73D /* CareGuide.swift */; };
 		453604D62326AA9F00EDA73D /* Sunlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453604D52326AA9F00EDA73D /* Sunlight.swift */; };
+		45A2E8EC2334E116004794B3 /* PlantActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2E8EB2334E116004794B3 /* PlantActivities.swift */; };
+		45A2E8EF2334E1E2004794B3 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2E8EE2334E1E2004794B3 /* Activity.swift */; };
+		45A2E8F22334E3E5004794B3 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2E8F12334E3E5004794B3 /* Reminder.swift */; };
 		45B7528423291315006B4ED7 /* PlantsSotre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7528323291315006B4ED7 /* PlantsSotre.swift */; };
 		45B75301232F7D99006B4ED7 /* Soil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75300232F7D99006B4ED7 /* Soil.swift */; };
-		45B75304232F7FCC006B4ED7 /* CareGuideRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75303232F7FCC006B4ED7 /* CareGuideRequirements.swift */; };
-		45B75306232F7FFA006B4ED7 /* CareReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75305232F7FFA006B4ED7 /* CareReminder.swift */; };
-		45B75308232F8008006B4ED7 /* WateringReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75307232F8008006B4ED7 /* WateringReminder.swift */; };
-		45B7530A232F8017006B4ED7 /* TrimmingReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75309232F8017006B4ED7 /* TrimmingReminder.swift */; };
-		45B7530C232F8024006B4ED7 /* FertilizingReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7530B232F8024006B4ED7 /* FertilizingReminder.swift */; };
-		45B7530E232F802F006B4ED7 /* MoveReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7530D232F802F006B4ED7 /* MoveReminder.swift */; };
-		45F1E47323338E9700939D80 /* OtherReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F1E47223338E9700939D80 /* OtherReminder.swift */; };
-		45F6436D23312B7A00CA8FE6 /* ReminderOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6436C23312B7A00CA8FE6 /* ReminderOccurrence.swift */; };
-		45FD646F232FDF4300B2D44D /* MistReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD646E232FDF4300B2D44D /* MistReminder.swift */; };
+		45B75308232F8008006B4ED7 /* WaterPlantActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75307232F8008006B4ED7 /* WaterPlantActivity.swift */; };
+		45B7530A232F8017006B4ED7 /* TrimPlantActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75309232F8017006B4ED7 /* TrimPlantActivity.swift */; };
+		45B7530C232F8024006B4ED7 /* FertilizePlantActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7530B232F8024006B4ED7 /* FertilizePlantActivity.swift */; };
+		45B7530E232F802F006B4ED7 /* MovePlantActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7530D232F802F006B4ED7 /* MovePlantActivity.swift */; };
+		45C8978A2335000100FD3D8B /* LogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C897892335000100FD3D8B /* LogEntry.swift */; };
+		45F1E47323338E9700939D80 /* OtherPlantActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F1E47223338E9700939D80 /* OtherPlantActivity.swift */; };
+		45F6436D23312B7A00CA8FE6 /* Occurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F6436C23312B7A00CA8FE6 /* Occurrence.swift */; };
+		45FD646F232FDF4300B2D44D /* MistPlantActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD646E232FDF4300B2D44D /* MistPlantActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,19 +43,20 @@
 		453604AE2326A43C00EDA73D /* PlantEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantEntityTests.swift; sourceTree = "<group>"; };
 		453604B02326A43C00EDA73D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453604C32326A44B00EDA73D /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
-		453604CD2326A64B00EDA73D /* CareGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGuide.swift; sourceTree = "<group>"; };
 		453604D52326AA9F00EDA73D /* Sunlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sunlight.swift; sourceTree = "<group>"; };
+		45A2E8EB2334E116004794B3 /* PlantActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantActivities.swift; sourceTree = "<group>"; };
+		45A2E8EE2334E1E2004794B3 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		45A2E8F12334E3E5004794B3 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		45B7528323291315006B4ED7 /* PlantsSotre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsSotre.swift; sourceTree = "<group>"; };
 		45B75300232F7D99006B4ED7 /* Soil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soil.swift; sourceTree = "<group>"; };
-		45B75303232F7FCC006B4ED7 /* CareGuideRequirements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGuideRequirements.swift; sourceTree = "<group>"; };
-		45B75305232F7FFA006B4ED7 /* CareReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareReminder.swift; sourceTree = "<group>"; };
-		45B75307232F8008006B4ED7 /* WateringReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringReminder.swift; sourceTree = "<group>"; };
-		45B75309232F8017006B4ED7 /* TrimmingReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimmingReminder.swift; sourceTree = "<group>"; };
-		45B7530B232F8024006B4ED7 /* FertilizingReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilizingReminder.swift; sourceTree = "<group>"; };
-		45B7530D232F802F006B4ED7 /* MoveReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveReminder.swift; sourceTree = "<group>"; };
-		45F1E47223338E9700939D80 /* OtherReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherReminder.swift; sourceTree = "<group>"; };
-		45F6436C23312B7A00CA8FE6 /* ReminderOccurrence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderOccurrence.swift; sourceTree = "<group>"; };
-		45FD646E232FDF4300B2D44D /* MistReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistReminder.swift; sourceTree = "<group>"; };
+		45B75307232F8008006B4ED7 /* WaterPlantActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterPlantActivity.swift; sourceTree = "<group>"; };
+		45B75309232F8017006B4ED7 /* TrimPlantActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimPlantActivity.swift; sourceTree = "<group>"; };
+		45B7530B232F8024006B4ED7 /* FertilizePlantActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FertilizePlantActivity.swift; sourceTree = "<group>"; };
+		45B7530D232F802F006B4ED7 /* MovePlantActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovePlantActivity.swift; sourceTree = "<group>"; };
+		45C897892335000100FD3D8B /* LogEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogEntry.swift; sourceTree = "<group>"; };
+		45F1E47223338E9700939D80 /* OtherPlantActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPlantActivity.swift; sourceTree = "<group>"; };
+		45F6436C23312B7A00CA8FE6 /* Occurrence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Occurrence.swift; sourceTree = "<group>"; };
+		45FD646E232FDF4300B2D44D /* MistPlantActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistPlantActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,13 +115,55 @@
 			path = PlantEntityTests;
 			sourceTree = "<group>";
 		};
+		45A2E8EA2334E107004794B3 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				45A2E8EE2334E1E2004794B3 /* Activity.swift */,
+				45A2E8ED2334E1CE004794B3 /* Plant */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		45A2E8ED2334E1CE004794B3 /* Plant */ = {
+			isa = PBXGroup;
+			children = (
+				45A2E8EB2334E116004794B3 /* PlantActivities.swift */,
+				45B7530D232F802F006B4ED7 /* MovePlantActivity.swift */,
+				45B7530B232F8024006B4ED7 /* FertilizePlantActivity.swift */,
+				45FD646E232FDF4300B2D44D /* MistPlantActivity.swift */,
+				45B75309232F8017006B4ED7 /* TrimPlantActivity.swift */,
+				45B75307232F8008006B4ED7 /* WaterPlantActivity.swift */,
+				45F1E47223338E9700939D80 /* OtherPlantActivity.swift */,
+			);
+			path = Plant;
+			sourceTree = "<group>";
+		};
+		45A2E8F02334E3DB004794B3 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				45A2E8F12334E3E5004794B3 /* Reminder.swift */,
+				45F6436C23312B7A00CA8FE6 /* Occurrence.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		45A2E8F32334E7E5004794B3 /* Plant */ = {
+			isa = PBXGroup;
+			children = (
+				453604C32326A44B00EDA73D /* Plant.swift */,
+				45B75300232F7D99006B4ED7 /* Soil.swift */,
+				453604D52326AA9F00EDA73D /* Sunlight.swift */,
+			);
+			path = Plant;
+			sourceTree = "<group>";
+		};
 		45B75281232912FD006B4ED7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				45B75300232F7D99006B4ED7 /* Soil.swift */,
-				453604C32326A44B00EDA73D /* Plant.swift */,
-				45B75302232F7FBC006B4ED7 /* CareGuide */,
-				453604D52326AA9F00EDA73D /* Sunlight.swift */,
+				45A2E8F32334E7E5004794B3 /* Plant */,
+				45A2E8F02334E3DB004794B3 /* Reminders */,
+				45A2E8EA2334E107004794B3 /* Activities */,
+				45C897892335000100FD3D8B /* LogEntry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,31 +174,6 @@
 				45B7528323291315006B4ED7 /* PlantsSotre.swift */,
 			);
 			path = Stores;
-			sourceTree = "<group>";
-		};
-		45B75302232F7FBC006B4ED7 /* CareGuide */ = {
-			isa = PBXGroup;
-			children = (
-				453604CD2326A64B00EDA73D /* CareGuide.swift */,
-				45B75303232F7FCC006B4ED7 /* CareGuideRequirements.swift */,
-				45FD6470232FE19300B2D44D /* Reminders */,
-			);
-			path = CareGuide;
-			sourceTree = "<group>";
-		};
-		45FD6470232FE19300B2D44D /* Reminders */ = {
-			isa = PBXGroup;
-			children = (
-				45B7530D232F802F006B4ED7 /* MoveReminder.swift */,
-				45B7530B232F8024006B4ED7 /* FertilizingReminder.swift */,
-				45FD646E232FDF4300B2D44D /* MistReminder.swift */,
-				45B75309232F8017006B4ED7 /* TrimmingReminder.swift */,
-				45B75307232F8008006B4ED7 /* WateringReminder.swift */,
-				45F1E47223338E9700939D80 /* OtherReminder.swift */,
-				45B75305232F7FFA006B4ED7 /* CareReminder.swift */,
-				45F6436C23312B7A00CA8FE6 /* ReminderOccurrence.swift */,
-			);
-			path = Reminders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,20 +285,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B75308232F8008006B4ED7 /* WateringReminder.swift in Sources */,
-				45B7530A232F8017006B4ED7 /* TrimmingReminder.swift in Sources */,
+				45A2E8F22334E3E5004794B3 /* Reminder.swift in Sources */,
+				45B75308232F8008006B4ED7 /* WaterPlantActivity.swift in Sources */,
+				45C8978A2335000100FD3D8B /* LogEntry.swift in Sources */,
+				45B7530A232F8017006B4ED7 /* TrimPlantActivity.swift in Sources */,
 				45B75301232F7D99006B4ED7 /* Soil.swift in Sources */,
+				45A2E8EC2334E116004794B3 /* PlantActivities.swift in Sources */,
 				453604C42326A44B00EDA73D /* Plant.swift in Sources */,
-				45FD646F232FDF4300B2D44D /* MistReminder.swift in Sources */,
-				45F6436D23312B7A00CA8FE6 /* ReminderOccurrence.swift in Sources */,
+				45FD646F232FDF4300B2D44D /* MistPlantActivity.swift in Sources */,
+				45A2E8EF2334E1E2004794B3 /* Activity.swift in Sources */,
+				45F6436D23312B7A00CA8FE6 /* Occurrence.swift in Sources */,
 				453604D62326AA9F00EDA73D /* Sunlight.swift in Sources */,
-				45B7530C232F8024006B4ED7 /* FertilizingReminder.swift in Sources */,
-				45F1E47323338E9700939D80 /* OtherReminder.swift in Sources */,
+				45B7530C232F8024006B4ED7 /* FertilizePlantActivity.swift in Sources */,
+				45F1E47323338E9700939D80 /* OtherPlantActivity.swift in Sources */,
 				45B7528423291315006B4ED7 /* PlantsSotre.swift in Sources */,
-				453604CE2326A64B00EDA73D /* CareGuide.swift in Sources */,
-				45B75304232F7FCC006B4ED7 /* CareGuideRequirements.swift in Sources */,
-				45B7530E232F802F006B4ED7 /* MoveReminder.swift in Sources */,
-				45B75306232F7FFA006B4ED7 /* CareReminder.swift in Sources */,
+				45B7530E232F802F006B4ED7 /* MovePlantActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

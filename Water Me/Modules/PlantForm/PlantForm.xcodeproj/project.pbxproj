@@ -12,7 +12,6 @@
 		453604DC2326AB6A00EDA73D /* PlantEntity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453604DB2326AB6A00EDA73D /* PlantEntity.framework */; };
 		453604DD2326AB6A00EDA73D /* PlantEntity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 453604DB2326AB6A00EDA73D /* PlantEntity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		453604E62327C33300EDA73D /* PlantFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453604E52327C33300EDA73D /* PlantFormView.swift */; };
-		45B752BA232B7CD8006B4ED7 /* UnitVolume+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B752B9232B7CD8006B4ED7 /* UnitVolume+CaseIterable.swift */; };
 		45B752EB232B8330006B4ED7 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B752EA232B8330006B4ED7 /* Common.framework */; };
 		45B752EC232B8330006B4ED7 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45B752EA232B8330006B4ED7 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45B752FF232EC37D006B4ED7 /* PlantFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B752FE232EC37D006B4ED7 /* PlantFormModel.swift */; };
@@ -51,7 +50,6 @@
 		453603EF2326884D00EDA73D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		453604DB2326AB6A00EDA73D /* PlantEntity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PlantEntity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453604E52327C33300EDA73D /* PlantFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFormView.swift; sourceTree = "<group>"; };
-		45B752B9232B7CD8006B4ED7 /* UnitVolume+CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UnitVolume+CaseIterable.swift"; path = "../../ReminderForm/ReminderForm/UnitVolume+CaseIterable.swift"; sourceTree = "<group>"; };
 		45B752EA232B8330006B4ED7 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B752FE232EC37D006B4ED7 /* PlantFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantFormModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +100,6 @@
 				453603E32326884D00EDA73D /* Info.plist */,
 				453604E52327C33300EDA73D /* PlantFormView.swift */,
 				45B752FE232EC37D006B4ED7 /* PlantFormModel.swift */,
-				45B752B9232B7CD8006B4ED7 /* UnitVolume+CaseIterable.swift */,
 			);
 			path = PlantForm;
 			sourceTree = "<group>";
@@ -237,7 +234,6 @@
 			files = (
 				45B752FF232EC37D006B4ED7 /* PlantFormModel.swift in Sources */,
 				453604E62327C33300EDA73D /* PlantFormView.swift in Sources */,
-				45B752BA232B7CD8006B4ED7 /* UnitVolume+CaseIterable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

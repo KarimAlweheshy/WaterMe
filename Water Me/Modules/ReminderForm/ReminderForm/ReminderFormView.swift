@@ -8,144 +8,68 @@
 
 import SwiftUI
 import Common
+import PlantEntity
 
-public struct ReminderFormView: View {
-    @Environment(\.presentationMode) var presentation
-    @ObservedObject public var model: ReminderFormViewModel
+struct ReminderFormView: View {
+    @ObservedObject var viewModel: ReminderFormViewModel
 
-    public init(model: ReminderFormViewModel) {
-        self.model = model
+    public init(viewModel: ReminderFormViewModel) {
+        self.viewModel = viewModel
     }
 
-    public var body: some View {
-        NavigationView {
-            form()
-                .modifier(AdaptsToSoftwareKeyboard())
-                .navigationBarTitle(Text("Add Reminder"))
-                .navigationBarItems(leading: cancelBarItem(), trailing: traillingBarItem())
-        }
-    }
-}
-
-// MARK: - Navigation Items
-extension ReminderFormView {
-    private func cancelBarItem() -> some View {
-        Button(action: dismiss) { Text("Cancel") }
-    }
-
-    private func traillingBarItem() -> some View {
-        Button(action: save) { Text("Save") }
-    }
-
-    private func dismiss() {
-        presentation.wrappedValue.dismiss()
-    }
-
-    private func save() {
-        model.save()
-        dismiss()
-    }
-}
-
-// MARK: - Form
-extension ReminderFormView {
-    private func form() -> some View {
+    var body: some View {
         Form {
-            reminderInterval()
-            reminderTypePicker()
-            detailsSection()
-            extrasSection()
+            if viewModel.frequency != .daily {
+                Text(viewModel.description)
+            }
+            Section {
+                frequencyPicker()
+                Stepper("Every \(viewModel.frequencyDescription)", value: $viewModel.every, in: 1...999)
+            }
+            frequencyDetailsSection()
         }
+        .navigationBarTitle("Repeat")
     }
 }
 
-// MARK: - Reminder Interval
+// MARK: - Frequency
 extension ReminderFormView {
-    private func reminderInterval() -> some View {
-        NavigationLink(
-            destination: ReminderFrequencyView(model: model.reminderFrequencyModel)
+    private func frequencyPicker() -> some View {
+        Picker(selection: $viewModel.frequency,
+                      label: Text("Frequency")
         ) {
-            HStack {
-                Image(systemName: "repeat")
-                Text("Remind me \(model.reminderOccurance.description)")
+            ForEach(ReminderFormViewModel.Frequency.allCases, id: \.self) {
+                Text($0.rawValue)
             }
         }
     }
 }
 
-// MARK: - Attachments
+// MARK: - Frequency Details
 extension ReminderFormView {
-    private func attachmentsSection() -> some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Image(systemName: "plus.app")
-                Text(model.images.isEmpty ? "Add attachments" : "Attachments")
-                Spacer()
-                PickImagesButton(model: model.pickImagesModel)
-            }
-            HStack {
-                ForEach(model.images, id: \.self) {
-                    Image(uiImage: $0)
-                        .resizable()
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                        .shadow(radius: 10)
-                        .frame(width: 100, height: 100, alignment: .center)
-                        .aspectRatio(contentMode: .fit)
-                }
-            }
-        }
-    }
-}
-
-// MARK: - Extras
-extension ReminderFormView {
-    private func extrasSection() -> some View {
-        Section(header: Text("Extras").font(.title)) {
-            HStack {
-                Image(systemName: "doc")
-                TextField("Notes", text: $model.notes).lineLimit(3)
-            }
-            attachmentsSection()
-        }
-    }
-}
-
-// MARK: - Type Picker
-extension ReminderFormView {
-    private func reminderTypePicker() -> some View {
-        HStack {
-            Image(systemName: "info.circle")
-            Picker(selection: $model.type,
-                   label: Text("About")
-            ) {
-                ForEach(ReminderType.allCases, id: \.self) {
-                    Text($0.rawValue)
-                }
-            }
-        }
-    }
-}
-
-// MARK: - Details Section
-extension ReminderFormView {
-    private func detailsSection() -> some View {
-        Section(
-            header: HStack {
-                Text("Details").font(.title)
-                Spacer()
-            },
-            content: detailsSectionDetails
-        )
-    }
-
-    private func detailsSectionDetails() -> some View {
-        Group {
-            if model.type == .water {
-                WaterReminderFormView(model: .init())
+    private func frequencyDetailsSection() -> some View {
+        Section {
+            if viewModel.frequency == .weekly {
+                weeklyDaysPicker()
             } else {
-                Text("")
+                EmptyView()
             }
+        }
+    }
+
+    private func weeklyDaysPicker() -> some View {
+        ForEach(WeekDay.allCases, id: \.self) { weekDay in
+            Button(action: { self.viewModel.toggleSelection(for: weekDay) }) {
+                HStack {
+                    Text(weekDay.rawValue.capitalized)
+                    Spacer()
+                    if self.viewModel.isSelected(weekDay) {
+                        Image(systemName: "checkmark")
+                    } else {
+                        EmptyView()
+                    }
+                }
+            }.foregroundColor(.primary)
         }
     }
 }

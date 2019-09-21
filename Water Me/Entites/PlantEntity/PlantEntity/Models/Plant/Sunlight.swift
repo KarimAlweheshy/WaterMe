@@ -10,4 +10,6 @@ import Foundation
 
 public enum Sunlight: String, CaseIterable, Codable {
     case partialShade = "Partial Shade"
+    case indoor = "Indoor"
+    case outdoor = "Outdoor"
 }
