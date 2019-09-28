@@ -42,8 +42,6 @@ public struct PickImagesButton: View {
     }
 
     private func showImagePicker() -> some View {
-        ImagePickerViewController(images: $model.images, isShown: $model.showsPickImageView, type: model.imagePickerType).onDisappear {
-            print("wtf")
-        }
+        ImagePickerViewController(images: $model.images, isShown: $model.showsPickImageView, type: model.imagePickerType)
     }
 }

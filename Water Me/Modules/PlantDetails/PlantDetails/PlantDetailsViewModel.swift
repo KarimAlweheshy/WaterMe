@@ -18,7 +18,7 @@ final class PlantDetailsViewModel: ObservableObject {
     @Published var nickName: String
 
     private let plantsStore: PlantsStore
-    private let plant: Plant
+    @Published var plant: Plant
 
     init(plantsStore: PlantsStore, plant: Plant) {
         self.plantsStore = plantsStore
@@ -46,11 +46,13 @@ final class PlantDetailsViewModel: ObservableObject {
         )
     }
 
-    func showPlantForm() {
+    func didTapEdit() {
         showsPlantFormView = true
     }
 
-    func showReminderForm() {
+    func didTapAddActivity() {
         showsReminderFormView = true
     }
+
+    var images: [UIImage] { plant.images }
 }

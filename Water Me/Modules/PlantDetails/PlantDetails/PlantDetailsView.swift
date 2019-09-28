@@ -19,6 +19,8 @@ struct PlantDetailsView: View {
 
     var body: some View {
         VStack {
+            details()
+            activities()
             Text(viewModel.nickName)
             addReminder()
         }
@@ -29,15 +31,41 @@ struct PlantDetailsView: View {
 
 // MARK: - Private Methods
 extension PlantDetailsView {
+    private func details() -> some View {
+        GeometryReader { geometry in
+            ScrollView {
+                self.contentView(size: geometry.size)
+            }
+        }
+    }
+
+    private func contentView(size: CGSize) -> some View {
+        HStack {
+            ForEach(self.viewModel.images, id: \.self) {
+                Image(uiImage: $0)
+                    .resizable()
+                    .frame(width: size.width, height: size.height / 3)
+                    .padding()
+            }
+        }
+    }
+
+    private func activities() -> some View {
+        Group {
+            Section {
+                Text("Water")
+            }
+        }
+    }
     private func editButton() -> some View {
-        Button(action: viewModel.showPlantForm) { Text("Edit") }
+        Button(action: viewModel.didTapEdit) { Text("Edit") }
             .sheet(isPresented: $viewModel.showsPlantFormView) {
                 self.viewModel.plantFormView()
             }
     }
 
     private func addReminder() -> some View {
-        Button(action: viewModel.showReminderForm) { Text("Add Activity") }
+        Button(action: viewModel.didTapAddActivity) { Text("Add Activity") }
             .sheet(isPresented: $viewModel.showsReminderFormView) {
                 self.viewModel.plantActivityFormView()
             }

@@ -28,6 +28,7 @@ public final class PlantsStore: ObservableObject {
     public func remove(old plant: Plant) {
         guard let index = allPlants.firstIndex(where: { $0.id == plant.id }) else { return }
         allPlants.remove(at: index)
+        removeLocalImages(for: plant)
         try? updateStore()
     }
 
@@ -51,15 +52,20 @@ public final class PlantsStore: ObservableObject {
 
 // MARK: - Private Methods
 extension PlantsStore {
-    func updateStore() throws {
+    private func updateStore() throws {
         let encoder = JSONEncoder()
         let data = try encoder.encode(allPlants)
         userDefaults.setValue(data, forKey: "my_plants")
     }
 
-    func loadFromStore() throws {
+    private func loadFromStore() throws {
         guard let data = userDefaults.data(forKey: "my_plants") else { return }
         let decoder = JSONDecoder()
         allPlants = try decoder.decode([Plant].self, from: data)
+    }
+
+    private func removeLocalImages(for plant: Plant) {
+        var plant = plant
+        plant.images.removeAll()
     }
 }
