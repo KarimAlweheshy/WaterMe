@@ -35,9 +35,13 @@ final class PlantActivityFormViewModel: ObservableObject {
 
     }
 
-    lazy var pickImagesModel: PickImagesModel = {
-        let model = PickImagesModel(title: "Pick", images: images)
-        model.publisher.assign(to: \.images, on: self).store(in: &cancelableSubs)
+    lazy var pickImagesModel: PickImagesViewModel = {
+        let model = PickImagesViewModel()
+        model.publisher.sink { image in
+            guard let image = image else { return }
+            self.images.insert(image, at: 0)
+        }
+        .store(in: &cancelableSubs)
         return model
     }()
 

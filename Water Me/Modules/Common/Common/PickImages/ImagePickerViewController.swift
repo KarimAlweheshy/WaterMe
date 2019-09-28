@@ -16,13 +16,13 @@ public enum ImagePickerType {
 }
 
 struct ImagePickerViewController {
-    @Binding var images: [UIImage]
+    @Binding var image: UIImage?
     @Binding var isShown: Bool
     private let type: ImagePickerType
 
-    public init(images: Binding<[UIImage]>, isShown: Binding<Bool>, type: ImagePickerType) {
+    public init(image: Binding<UIImage?>, isShown: Binding<Bool>, type: ImagePickerType) {
         self.type = type
-        _images = images
+        _image = image
         _isShown = isShown
     }
 }
@@ -58,7 +58,7 @@ extension ImagePickerViewController: UIViewControllerRepresentable {
 
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             let imagePicked = info[.originalImage] as! UIImage
-            parent.images.insert(imagePicked, at: 0)
+            parent.image = imagePicked
             parent.isShown = false
         }
 

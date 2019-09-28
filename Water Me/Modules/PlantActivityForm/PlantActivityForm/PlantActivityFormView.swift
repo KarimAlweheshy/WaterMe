@@ -83,17 +83,17 @@ extension PlantActivityFormView {
                 Image(systemName: "plus.app")
                 Text(viewModel.images.isEmpty ? "Add attachments" : "Attachments")
                 Spacer()
-                PickImagesButton(model: viewModel.pickImagesModel)
+                PickImagesButton(viewModel: viewModel.pickImagesModel) { Text("Add") }
             }
-            HStack {
-                ForEach(viewModel.images, id: \.self) {
-                    Image(uiImage: $0)
-                        .resizable()
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                        .shadow(radius: 10)
-                        .frame(width: 100, height: 100, alignment: .center)
-                        .aspectRatio(contentMode: .fit)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(viewModel.images, id: \.self) {
+                        Image(uiImage: $0)
+                            .resizable()
+                            .frame(width: 100, height: 100, alignment: .center)
+                            .clipShape(Circle())
+                            .aspectRatio(contentMode: .fit)
+                    }
                 }
             }
         }

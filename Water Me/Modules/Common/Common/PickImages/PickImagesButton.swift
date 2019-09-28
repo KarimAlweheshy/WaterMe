@@ -8,18 +8,20 @@
 
 import SwiftUI
 
-public struct PickImagesButton: View {
-    @ObservedObject var model: PickImagesModel
+public struct PickImagesButton<Content: View>: View {
+    private let content: () -> Content
+    @ObservedObject var viewModel: PickImagesViewModel
 
-    public init(model: PickImagesModel) {
-        self.model = model
+    public init(viewModel: PickImagesViewModel, @ViewBuilder content: @escaping () -> Content) {
+        self.viewModel = viewModel
+        self.content = content
     }
 
     public var body: some View {
-        Button(model.title) { self.model.showsPickImageSheet = true }
-            .actionSheet(isPresented: $model.showsPickImageSheet,
+        Button(action: { self.viewModel.showsPickImageSheet = true }, label: content)
+            .actionSheet(isPresented: $viewModel.showsPickImageSheet,
                          content: pickImageSheet)
-            .sheet(isPresented: $model.showsPickImageView,
+            .sheet(isPresented: $viewModel.showsPickImageView,
                    content: showImagePicker)
     }
 
@@ -29,12 +31,12 @@ public struct PickImagesButton: View {
             message: Text("Add an image to your plant"),
             buttons: [
                 .default(Text("Camera"), action: {
-                    self.model.imagePickerType = .camera
-                    self.model.showsPickImageView = true
+                    self.viewModel.imagePickerType = .camera
+                    self.viewModel.showsPickImageView = true
                 }),
                 .default(Text("Photos"), action: {
-                    self.model.imagePickerType = .photos
-                    self.model.showsPickImageView = true
+                    self.viewModel.imagePickerType = .photos
+                    self.viewModel.showsPickImageView = true
                 }),
                 .cancel()
             ])
@@ -42,6 +44,8 @@ public struct PickImagesButton: View {
     }
 
     private func showImagePicker() -> some View {
-        ImagePickerViewController(images: $model.images, isShown: $model.showsPickImageView, type: model.imagePickerType)
+        ImagePickerViewController(image: $viewModel.image,
+                                  isShown: $viewModel.showsPickImageView,
+                                  type: viewModel.imagePickerType)
     }
 }

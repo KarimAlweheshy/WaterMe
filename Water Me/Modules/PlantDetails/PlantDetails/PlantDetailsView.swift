@@ -9,6 +9,7 @@
 import SwiftUI
 import PlantEntity
 import PlantForm
+import Common
 
 struct PlantDetailsView: View {
     @ObservedObject var viewModel: PlantDetailsViewModel
@@ -18,12 +19,11 @@ struct PlantDetailsView: View {
     }
 
     var body: some View {
-        GeometryReader { geometry in
-            ScrollView {
-                self.contentView(size: geometry.size)
-                self.activities()
-                Text(self.viewModel.nickName)
-                self.addReminder()
+        ScrollView {
+            VStack(alignment: .leading, spacing: 10) {
+                self.contentView().padding([.leading])
+                self.activities().padding([.leading, .trailing])
+                self.addReminder().padding([.leading, .trailing])
                 Spacer()
             }
         }
@@ -34,24 +34,32 @@ struct PlantDetailsView: View {
 
 // MARK: - Private Methods
 extension PlantDetailsView {
-    private func contentView(size: CGSize) -> some View {
+    private func contentView() -> some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .center) {
+                PickImagesButton(viewModel: viewModel.pickImagesModel) {
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 ForEach(self.viewModel.images, id: \.self) { image in
                     Image(uiImage: image)
                         .resizable()
+                        .frame(width: 100)
                         .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                        .shadow(radius: 10)
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: size.width, alignment: .center)
                 }
             }
         }
+        .frame(height: 100)
     }
 
     private func activities() -> some View {
-        Text("Water")
+        Section(header: Text("Activities").font(.headline)) {
+            ForEach(PlantActivities.Category.allCases.dropLast(), id: \.self) {
+                Text($0.rawValue).font(.subheadline)
+            }
+        }
     }
     private func editButton() -> some View {
         Button(action: viewModel.didTapEdit) { Text("Edit") }

@@ -11,6 +11,7 @@ import Combine
 import PlantEntity
 import PlantForm
 import PlantActivityForm
+import Common
 
 final class PlantDetailsViewModel: ObservableObject {
     @Published var showsPlantFormView = false
@@ -19,6 +20,8 @@ final class PlantDetailsViewModel: ObservableObject {
 
     private let plantsStore: PlantsStore
     @Published var plant: Plant
+
+    private var cancelableSubs = Set<AnyCancellable>()
 
     init(plantsStore: PlantsStore, plant: Plant) {
         self.plantsStore = plantsStore
@@ -54,5 +57,17 @@ final class PlantDetailsViewModel: ObservableObject {
         showsReminderFormView = true
     }
 
-    var images: [UIImage] { plant.images }
+    var images: [UIImage] { PlantImagesStore(plant: plant).images }
+
+    lazy var pickImagesModel: PickImagesViewModel = {
+        let model = PickImagesViewModel()
+        model.publisher.dropFirst().sink { image in
+            guard let image = image else { return }
+            let store = PlantImagesStore(plant: self.plant)
+            store.add(image: image)
+            self.plant = store.plant
+            self.plantsStore.update(plant: self.plant)
+        }.store(in: &cancelableSubs)
+        return model
+    }()
 }

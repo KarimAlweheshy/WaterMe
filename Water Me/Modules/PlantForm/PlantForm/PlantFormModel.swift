@@ -29,28 +29,33 @@ public final class PlantFormModel: ObservableObject {
         botanicalName = plant?.botanicalName ?? ""
         soil = plant?.soil ?? .neutral
         sunlight = plant?.sunlight ?? .partialShade
-        images = plant?.images ?? [UIImage]()
+        images = plant.map(PlantImagesStore.init(plant:)).map { $0.images } ?? [UIImage]()
     }
 
     func save() {
-        var plant = Plant(id: id ?? Int.random(in: 0...Int.max),
+        let plant = Plant(id: id ?? Int.random(in: 0...Int.max),
                           nickName: nickName,
                           botanicalName: botanicalName,
                           sunlight: sunlight,
                           soil: soil,
                           activities: .init())
-        plant.images = images
+        let imagesStore = PlantImagesStore(plant: plant)
+        images.forEach(imagesStore.add(image:))
 
-        if let id = id, let oldPlant = store.allPlants.first(where: { $0.id == id }) {
-            store.update(old: oldPlant, new: plant)
+        if id != nil {
+            store.update(plant: imagesStore.plant)
         } else {
-            store.insert(new: plant)
+            store.insert(new: imagesStore.plant)
         }
     }
 
-    lazy var pickImagesModel: PickImagesModel = {
-        let model = PickImagesModel(title: "Pick", images: images)
-        model.publisher.assign(to: \.images, on: self).store(in: &cancelableSubs)
+    lazy var pickImagesModel: PickImagesViewModel = {
+        let model = PickImagesViewModel()
+        model.publisher.sink { image in
+            guard let image = image else { return }
+            self.images.insert(image, at: 0)
+        }
+        .store(in: &cancelableSubs)
         return model
     }()
 }

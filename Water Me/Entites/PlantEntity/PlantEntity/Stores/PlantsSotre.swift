@@ -40,11 +40,11 @@ public final class PlantsStore: ObservableObject {
         try? updateStore()
     }
 
-    public func update(old oldPlant: Plant, new newPlant: Plant) {
-        guard let index = allPlants.firstIndex(where: { $0.id == oldPlant.id }) else { return }
+    public func update(plant: Plant) {
+        guard let index = allPlants.firstIndex(where: { $0.id == plant.id }) else { return }
         var plants = allPlants
         plants.remove(at: index)
-        plants.insert(newPlant, at: index)
+        plants.insert(plant, at: index)
         allPlants = plants
         try? updateStore()
     }
@@ -65,7 +65,7 @@ extension PlantsStore {
     }
 
     private func removeLocalImages(for plant: Plant) {
-        var plant = plant
-        plant.images.removeAll()
+        let plantImagesStore = PlantImagesStore(plant: plant)
+        plantImagesStore.removeAll()
     }
 }

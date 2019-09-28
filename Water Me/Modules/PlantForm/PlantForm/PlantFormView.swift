@@ -79,17 +79,17 @@ extension PlantFormView {
                 Image(systemName: "plus.app")
                 Text(model.images.isEmpty ? "Pick images for your plant" : "Images")
                 Spacer()
-                PickImagesButton(model: model.pickImagesModel)
+                PickImagesButton(viewModel: model.pickImagesModel) { Text("Pick") }
             }
-            HStack {
-                ForEach(model.images, id: \.self) {
-                    Image(uiImage: $0)
-                        .resizable()
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                        .shadow(radius: 10)
-                        .frame(width: 100, height: 100, alignment: .center)
-                        .aspectRatio(contentMode: .fit)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(model.images, id: \.self) {
+                        Image(uiImage: $0)
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                            .aspectRatio(contentMode: .fit)
+                    }
                 }
             }
         }
@@ -109,7 +109,7 @@ extension PlantFormView {
         HStack {
             Image(systemName: "sun.max")
             Picker(selection: $model.sunlight,
-                   label: Text("Sunlgiht")
+                   label: Text("Sunlight")
             ) {
                 ForEach(Sunlight.allCases, id: \.self) {
                     Text($0.rawValue)
