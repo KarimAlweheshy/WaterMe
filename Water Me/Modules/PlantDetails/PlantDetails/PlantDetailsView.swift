@@ -18,11 +18,14 @@ struct PlantDetailsView: View {
     }
 
     var body: some View {
-        VStack {
-            details()
-            activities()
-            Text(viewModel.nickName)
-            addReminder()
+        GeometryReader { geometry in
+            ScrollView {
+                self.contentView(size: geometry.size)
+                self.activities()
+                Text(self.viewModel.nickName)
+                self.addReminder()
+                Spacer()
+            }
         }
         .navigationBarTitle(viewModel.nickName)
         .navigationBarItems(trailing: editButton())
@@ -31,31 +34,24 @@ struct PlantDetailsView: View {
 
 // MARK: - Private Methods
 extension PlantDetailsView {
-    private func details() -> some View {
-        GeometryReader { geometry in
-            ScrollView {
-                self.contentView(size: geometry.size)
-            }
-        }
-    }
-
     private func contentView(size: CGSize) -> some View {
-        HStack {
-            ForEach(self.viewModel.images, id: \.self) {
-                Image(uiImage: $0)
-                    .resizable()
-                    .frame(width: size.width, height: size.height / 3)
-                    .padding()
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: .center) {
+                ForEach(self.viewModel.images, id: \.self) { image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                        .shadow(radius: 10)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: size.width, alignment: .center)
+                }
             }
         }
     }
 
     private func activities() -> some View {
-        Group {
-            Section {
-                Text("Water")
-            }
-        }
+        Text("Water")
     }
     private func editButton() -> some View {
         Button(action: viewModel.didTapEdit) { Text("Edit") }
