@@ -9,14 +9,17 @@
 import Foundation
 
 public protocol Activity: Codable {
-    static func typeName() -> String
-
-    var logs: [LogEntry] { get }
-    var reminder: Reminder { get }
+    var id: Int { get }
+    var category: ActivityCategory { get }
+    var logs: [LogEntry] { get set }
+    var reminder: Reminder? { get set }
 }
 
-extension Activity {
-    public static func typeName() -> String {
-        return String(describing: self)
-    }
+public enum ActivityCategory: String, Codable, CaseIterable {
+    case water = "Watering"
+    case trimming = "Trimming"
+    case fertilizing = "Fertilizing"
+    case move = "Moving"
+    case mist = "Misting"
+    case other = "Other"
 }

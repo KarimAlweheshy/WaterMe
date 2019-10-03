@@ -16,6 +16,7 @@
 		45A2E8F22334E3E5004794B3 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A2E8F12334E3E5004794B3 /* Reminder.swift */; };
 		45A47870233F575C0099B0EE /* FileManager+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A4786F233F575C0099B0EE /* FileManager+Entity.swift */; };
 		45A47872233F61220099B0EE /* PlantImagesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A47871233F61220099B0EE /* PlantImagesStore.swift */; };
+		45A78C3E2345DD020002B69E /* LogImagesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A78C3D2345DD020002B69E /* LogImagesStore.swift */; };
 		45B7528423291315006B4ED7 /* PlantsSotre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B7528323291315006B4ED7 /* PlantsSotre.swift */; };
 		45B75301232F7D99006B4ED7 /* Soil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75300232F7D99006B4ED7 /* Soil.swift */; };
 		45B75308232F8008006B4ED7 /* WaterPlantActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B75307232F8008006B4ED7 /* WaterPlantActivity.swift */; };
@@ -51,6 +52,7 @@
 		45A2E8F12334E3E5004794B3 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		45A4786F233F575C0099B0EE /* FileManager+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Entity.swift"; sourceTree = "<group>"; };
 		45A47871233F61220099B0EE /* PlantImagesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantImagesStore.swift; sourceTree = "<group>"; };
+		45A78C3D2345DD020002B69E /* LogImagesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogImagesStore.swift; sourceTree = "<group>"; };
 		45B7528323291315006B4ED7 /* PlantsSotre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantsSotre.swift; sourceTree = "<group>"; };
 		45B75300232F7D99006B4ED7 /* Soil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Soil.swift; sourceTree = "<group>"; };
 		45B75307232F8008006B4ED7 /* WaterPlantActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterPlantActivity.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				45B7528323291315006B4ED7 /* PlantsSotre.swift */,
 				45A47871233F61220099B0EE /* PlantImagesStore.swift */,
+				45A78C3D2345DD020002B69E /* LogImagesStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				45FD646F232FDF4300B2D44D /* MistPlantActivity.swift in Sources */,
 				45A47872233F61220099B0EE /* PlantImagesStore.swift in Sources */,
 				45A2E8EF2334E1E2004794B3 /* Activity.swift in Sources */,
+				45A78C3E2345DD020002B69E /* LogImagesStore.swift in Sources */,
 				45F6436D23312B7A00CA8FE6 /* Occurrence.swift in Sources */,
 				453604D62326AA9F00EDA73D /* Sunlight.swift in Sources */,
 				45B7530C232F8024006B4ED7 /* FertilizePlantActivity.swift in Sources */,

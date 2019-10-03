@@ -12,7 +12,7 @@ import PlantEntity
 public struct PlantActivityFormFactory {
     public init() {}
     
-    public func make(store: PlantsStore, plantID: Int, activity: Activity) -> some View {
-        PlantActivityFormView(viewModel: .init(store: store, plantID: plantID, activity: activity))
+    public func make(store: PlantsStore, plant: Plant, activity: Activity?) -> some View {
+        PlantActivityFormView(viewModel: .init(store: store, plant: plant, activity: activity))
     }
 }

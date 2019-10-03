@@ -32,7 +32,6 @@ struct PlantListView: View {
                         .onMove(perform: viewModel.move)
                         .onDelete(perform: viewModel.delete)
                 }
-                .listStyle(GroupedListStyle())
                 .environment(\.editMode, viewModel.isEditing ? .constant(.active) : .constant(.inactive))
             }
         }

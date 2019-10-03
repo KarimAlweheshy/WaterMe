@@ -23,7 +23,7 @@ struct PlantActivityFormView: View {
         NavigationView {
             form()
                 .modifier(AdaptsToSoftwareKeyboard())
-                .navigationBarTitle(Text("Add Reminder"))
+                .navigationBarTitle(Text("Add Activity"))
                 .navigationBarItems(leading: cancelBarItem(), trailing: traillingBarItem())
         }
     }
@@ -53,24 +53,9 @@ extension PlantActivityFormView {
 extension PlantActivityFormView {
     private func form() -> some View {
         Form {
-            reminderInterval()
-            reminderTypePicker()
+            activityTypePicker()
             detailsSection()
             extrasSection()
-        }
-    }
-}
-
-// MARK: - Reminder Interval
-extension PlantActivityFormView {
-    private func reminderInterval() -> some View {
-        NavigationLink(
-            destination: viewModel.reminderFormView()
-        ) {
-            HStack {
-                Image(systemName: "repeat")
-                Text("Remind me \(viewModel.occurrence.description)")
-            }
         }
     }
 }
@@ -113,15 +98,15 @@ extension PlantActivityFormView {
     }
 }
 
-// MARK: - Type Picker
+// MARK: - Activity Picker
 extension PlantActivityFormView {
-    private func reminderTypePicker() -> some View {
+    private func activityTypePicker() -> some View {
         HStack {
             Image(systemName: "info.circle")
             Picker(selection: $viewModel.category,
                    label: Text("About")
             ) {
-                ForEach(PlantActivities.Category.allCases, id: \.self) {
+                ForEach(viewModel.possibleActivities, id: \.self) {
                     Text($0.rawValue)
                 }
             }

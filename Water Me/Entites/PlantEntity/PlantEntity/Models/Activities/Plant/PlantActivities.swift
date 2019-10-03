@@ -9,21 +9,12 @@
 import Foundation
 
 public struct PlantActivities: Codable {
-    public enum Category: String, CaseIterable {
-        case water = "Watering"
-        case trimming = "Trimming"
-        case fertilizing = "Fertilizing"
-        case move = "Moving"
-        case mist = "Misting"
-        case other = "Other"
-    }
-
-    public let move: MovePlantActivity?
-    public let fertilize: FertilizePlantActivity?
-    public let mist: MistPlantActivity?
-    public let trim: TrimPlantActivity?
-    public let water: WaterPlantActivity?
-    public let others: [OtherPlantActivity]?
+    public var move: MovePlantActivity?
+    public var fertilize: FertilizePlantActivity?
+    public var mist: MistPlantActivity?
+    public var trim: TrimPlantActivity?
+    public var water: WaterPlantActivity?
+    public var others: [OtherPlantActivity]?
 
     public init(
         move: MovePlantActivity? = nil,
@@ -39,5 +30,11 @@ public struct PlantActivities: Codable {
         self.trim = trim
         self.water = water
         self.others = others
+    }
+
+    public var all: [Activity] {
+        var allActivities = ([move, fertilize, mist, trim, water] as [Activity?]).compactMap { $0 }
+        others.map { allActivities.append(contentsOf: $0) }
+        return allActivities
     }
 }

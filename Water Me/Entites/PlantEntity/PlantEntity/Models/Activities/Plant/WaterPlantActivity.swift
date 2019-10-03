@@ -9,10 +9,13 @@
 import Foundation
 
 public struct WaterPlantActivity: Activity, Codable {
-    public let logs: [LogEntry]
-    public let reminder: Reminder
+    public let id: Int
+    public let category = ActivityCategory.water
+    public var logs: [LogEntry]
+    public var reminder: Reminder?
 
-    public init(logs: [LogEntry], reminder: Reminder) {
+    public init(id: Int, logs: [LogEntry], reminder: Reminder?) {
+        self.id = id
         self.logs = logs
         self.reminder = reminder
     }

@@ -9,6 +9,14 @@
 import Foundation
 
 public struct TrimPlantActivity: Activity, Codable {
-    public let logs: [LogEntry]
-    public let reminder: Reminder
+    public let id: Int
+    public let category = ActivityCategory.trimming
+    public var logs: [LogEntry]
+    public var reminder: Reminder?
+
+    public init(id: Int, logs: [LogEntry], reminder: Reminder?) {
+        self.id = id
+        self.logs = logs
+        self.reminder = reminder
+    }
 }

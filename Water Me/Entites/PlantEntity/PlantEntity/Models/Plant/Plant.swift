@@ -14,7 +14,7 @@ public struct Plant: Identifiable, Codable {
     public let botanicalName: String?
     public let sunlight: Sunlight
     public let soil: Soil
-    public let activities: PlantActivities
+    public var activities: PlantActivities
 
     var imageFilesName = [String]()
 

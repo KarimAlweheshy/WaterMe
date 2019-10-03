@@ -56,7 +56,7 @@ extension PlantDetailsView {
 
     private func activities() -> some View {
         Section(header: Text("Activities").font(.headline)) {
-            ForEach(PlantActivities.Category.allCases.dropLast(), id: \.self) {
+            ForEach(ActivityCategory.allCases.dropLast(), id: \.self) {
                 Text($0.rawValue).font(.subheadline)
             }
         }

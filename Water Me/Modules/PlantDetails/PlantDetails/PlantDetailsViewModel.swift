@@ -34,18 +34,10 @@ final class PlantDetailsViewModel: ObservableObject {
     }
 
     func plantActivityFormView() -> some View {
-        let reminder = Reminder(
-            id: Int.random(in: 0...Int.max),
-            occurrence: .daily(1)
-        )
-        let activity = WaterPlantActivity(
-            logs: [LogEntry](),
-            reminder: reminder
-        )
-        return PlantActivityFormFactory().make(
+        PlantActivityFormFactory().make(
             store: plantsStore,
-            plantID: plant.id,
-            activity: activity
+            plant: plant,
+            activity: nil
         )
     }
 
